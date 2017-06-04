@@ -4,35 +4,39 @@
   <head>
   <style>
   li {
-  display: inline;
-  float: inherit;
-  display: block;
-  border-right: 1px solid #bbb;
+    display: block;
+    border-bottom: 1px solid #555;
   }
   li:last-child {
-    border-right: none;
+    border-bottom: none;
   }
   .active {
     background-color: #4CAF50;
+    color: white;
   }
   ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
-      overflow: hidden;
+      overflow: auto;
       background-color: #333;
       top: 0;
       width: 100%;
+      border: 1px solid #555;
+      height: 100%;
+      position: fixed;
   }
   li a {
     display: block;
     color: white;
+    width: 60px;
     text-align: center;
-    padding: 14px 16px;
+    padding: 8px 16px;
     text-decoration: none;
   }
   li a:hover {
-    background-color: #111;
+    background-color: #555;
+    color: white;
   }
   </style>
   </head>
