@@ -5,8 +5,8 @@ subtitle: About Me
 ---
 <img align="middle" src="./assets/images/HeadShot.jpg" alt="Sarah Elkins" style="border-radius:50%; display:block; margin:auto;" width="200" height="200">  
 
-# Sarah Elkins
-## About Me
+<h1 align="center">{{ page.title }}</h1>
+<h2 align="center">{{ page.subtitle }}</h2> 
 
 ***
 
