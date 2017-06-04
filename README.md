@@ -1,10 +1,9 @@
-
+[Resume](./SarahElkinsResume.md)  |  [LinkedIn](linkedin.com/in/sarah-elkins-93719742)  
 
 <img src="./images/HeadShot.jpg" width="100">  
 
 # SARAH ELKINS  
-[Resume](./SarahElkinsResume.md)  |  [LinkedIn](linkedin.com/in/sarah-elkins-93719742)  
-***  
+***
 ## About Me
 I am a proud mother of 2 children and have been married for over 17 years to a wonderful husband.  
 <img src="./images/Family.JPG" width="250">    
