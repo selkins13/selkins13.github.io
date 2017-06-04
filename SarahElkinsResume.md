@@ -1,6 +1,6 @@
 [Home](./index.md) | [Resume](./SarahElkinsResume.md) | [LinkedIn](linkedin.com/in/sarah-elkins-93719742) | [GitHub](https://github.com/selkins13) | [Email]() | [Facebook](https://www.facebook.com/selkins13)
 
-<img src="./images/HeadShot.jpg" width="100">   
+<img src="./assets/images/HeadShot.jpg" width="100">   
 
 # SARAH ELKINS  
 ***  
