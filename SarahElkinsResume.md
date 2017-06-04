@@ -1,6 +1,7 @@
 [Home](./README.md) | [Resume](./SarahElkinsResume.md) | [LinkedIn](linkedin.com/in/sarah-elkins-93719742) | [GitHub](https://github.com/selkins13) | [Email](sarahelkins13@hotmail.com) | [Facebook](https://github.com/selkins13)
 
 <img src="./images/HeadShot.jpg" width="100">   
+
 # SARAH ELKINS  
 ***  
 1202 Plateau Trail, Georgetown, Texas 78626 | (270) 293-8340 | sarahelkins13@hotmail.com   
