@@ -1,5 +1,7 @@
+---
+layout: default
 title: Sarah Elkins
-
+---
 
 [Home](./index.md) | [Resume](./SarahElkinsResume.md) | [LinkedIn](linkedin.com/in/sarah-elkins-93719742) | [GitHub](https://github.com/selkins13) | [Email](sarahelkins13@hotmail.com) | [Facebook](https://github.com/selkins13)
 
