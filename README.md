@@ -1,4 +1,4 @@
-<img src="./images/HeadShot.jpg" width="75">  
+<img src="./images/HeadShot.jpg" width="100">  
 
 # SARAH ELKINS  
 [Resume](./SarahElkinsResume.md)  |  [LinkedIn](linkedin.com/in/sarah-elkins-93719742)

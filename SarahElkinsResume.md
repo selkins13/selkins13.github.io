@@ -1,5 +1,6 @@
-![Sarah Elkins](./images/HeadShot.jpg)  
+<img src="./images/HeadShot.jpg" width="100">   
 # SARAH ELKINS  
+[Home](./README.md)
 ***
 1202 Plateau Trail, Georgetown, Texas 78626 | (270) 293-8340 | sarahelkins13@hotmail.com   
 [LinkedIn: linkedin.com/in/sarah-elkins-93719742](linkedin.com/in/sarah-elkins-93719742)  
