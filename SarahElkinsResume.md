@@ -6,7 +6,8 @@ subtitle: Resume
 
 <img align="middle" src="./assets/images/HeadShot.jpg" alt="Sarah Elkins" style="border-radius:50%; display:block; margin:auto;" width="200" height="200">  
 
-# SARAH ELKINS  
+<h1 align="center">SARAH ELKINS</h1>  
+  
 ***  
 1202 Plateau Trail, Georgetown, Texas 78626 | (270) 293-8340 | sarahelkins13@hotmail.com   
 [LinkedIn: linkedin.com/in/sarah-elkins-93719742](linkedin.com/in/sarah-elkins-93719742)  
