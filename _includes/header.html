@@ -50,17 +50,18 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" >
-    <p>
-      <div id="header">
-        <nav>
-          <ul id="menu" background-color="#333" list-style-type="none">
-            <li><a href="{{ site.author.home }}">Home</a></li>
-            <li><a href="{{ site.author.linkedin }}" target="_blank">LinkedIn</a></li>
-            <li><a href="{{ site.author.github }}" target="_blank">GitHub</a></li>
-            <li><a href="{{ site.author.email }}">Email</a></li>
-            <li><a href="{{ site.author.facebook }}" target="_blank">Facebook</a></li>
-            <li><a href="{{ site.author.resume }}">Resume</a></li>
-          </ul>
-        </nav>
-      </div>
-    </p>
+
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <nav>
+            <ul id="menu" background-color="#333" list-style-type="none">
+              <li><a href="{{ site.author.home }}">Home</a></li>
+              <li><a href="{{ site.author.linkedin }}" target="_blank">LinkedIn</a></li>
+              <li><a href="{{ site.author.github }}" target="_blank">GitHub</a></li>
+              <li><a href="{{ site.author.email }}">Email</a></li>
+              <li><a href="{{ site.author.facebook }}" target="_blank">Facebook</a></li>
+              <li><a href="{{ site.author.resume }}">Resume</a></li>
+            </ul>
+          </nav>
+        </header>
+    </div>
