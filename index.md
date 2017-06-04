@@ -13,6 +13,6 @@ I am a proud mother of 2 children and have been married for over 17 years to a w
 
 <img src="./assets/images/Family.JPG" width="250">    
 
-Originally from the lakes area of Kentucky, I love to travel and see other parts for the country and world.  We usually will spend some time fishing anywhere we go, as this is one of our favorite hobbies.  I also love to read.  Some of my favorites are the Harry Potter books.  My famliy and I are Potter-Heads!!
+Originally from the lakes area of Kentucky, I love to travel and see other parts for the country and world.  We usually will spend some time fishing anywhere we go, as this is one of our favorite hobbies.  I also love to read.  Some of my favorites are the Harry Potter books.  My family and I are Potter-Heads!!
 
-<img src="./assects/images/HP.jpg" width="250">
+<img src="./assets/images/HP.jpg" width="250">  
