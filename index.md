@@ -10,7 +10,7 @@ title: Sarah Elkins
 ***
 ## About Me
 I am a proud mother of 2 children and have been married for over 17 years to a wonderful husband.  
-<img src="./images/Family.JPG" width="250">    
+<img src="./assets/images/Family.JPG" width="250">    
 
 Originally from the lakes area of Kentucky, I love to travel and see other parts for the country and world.  We usually will spend some time fishing anywhere we go, as this is one of our favorite hobbies.  I also love to read and watch movies.  
 
