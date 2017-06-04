@@ -61,20 +61,20 @@ _Telecommunications Operator; 2008 – 2011_
 ### Technology  
   *	Operating System Knowledge – Linux, Windows  
   *	Configured and maintained Source Code Management systems on an enterprise level
-    * GitHub Enterprise  
-    * Gerrit  
-    * Team Foundation Server  
-    * CollabNet TeamForge  
-    * Subversion Edge  
+      * GitHub Enterprise  
+      * Gerrit  
+      * Team Foundation Server  
+      * CollabNet TeamForge  
+      * Subversion Edge  
 
 
   * Experience with several coding languages, including:  
-    * Shell/Bash  
-    * CoffeeScript  
-    * HTML  
-    * SQL  
-    * Python  
-    * Perl  
+      * Shell/Bash  
+      * CoffeeScript  
+      * HTML  
+      * SQL  
+      * Python  
+      * Perl  
 
 
 ### Customer Service
