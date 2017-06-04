@@ -1,10 +1,11 @@
 ![Sarah Elkins](./images/HeadShot.jpg)  
-# SARAH ELKINS
+# SARAH ELKINS  
+[Resume](./SarahElkinsResume.md)  |  [LinkedIn](linkedin.com/in/sarah-elkins-93719742)
 ---
 ## About Me
 I am a proud mother of 2 children and have been married for over 17 years to a wonderful husband.  
 ![My Family](./images/Family.JPG)  
 
-Originally from the lakes area of Kentucky, I love to travel and see other parts for the country and world.  
+Originally from the lakes area of Kentucky, I love to travel and see other parts for the country and world.  We usually will spend some time fishing anywhere we go, as this is one of our favorite hobbies.  I also love to read and watch movies.  
 
 I was late in moving into the Technology field, but have found a love and passion for my work.  
