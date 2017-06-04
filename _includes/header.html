@@ -5,8 +5,36 @@
   <style>
   li {
   display: inline;
+  float: left; 
+  display: block;
+  border-right: 1px solid #bbb;
   }
-
+  li:last-child {
+    border-right: none;
+  }
+  .active {
+    background-color: #4CAF50;
+  }
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  li a:hover {
+    background-color: #111;
+  }
   </style>
   </head>
 
@@ -37,11 +65,12 @@
     <div id="header">
       <nav>
         <ul id="menu">
-          <li><a href="{{ site.author.linkedin }}" target="_blank"><span class="fa fa-linkedin"></span> LinkedIn</a></li>
-          <li><a href="{{ site.author.github }}" target="_blank"><span class="fa fa-github"></span> GitHub</a></li>
-          <li><a href="{{ site.author.email }}" ><span class="fa fa-envelope-o"></span> Email</a></li>
-          <li><a href="{{ site.author.facebook }}" target="_blank"><span class="fa fa-facebook"></span> Facebook</a></li>
-          <li><a href="{{ site.author.resume }}" target="_blank"><span class="fa fa-file-text-o"></span> Resume</a></li>
+          <li><a href="{{ site.author.home }}" target="_blank">Home</a></li>
+          <li><a href="{{ site.author.linkedin }}" target="_blank">LinkedIn</a></li>
+          <li><a href="{{ site.author.github }}" target="_blank">GitHub</a></li>
+          <li><a href="{{ site.author.email }}">Email</a></li>
+          <li><a href="{{ site.author.facebook }}" target="_blank">Facebook</a></li>
+          <li><a href="{{ site.author.resume }}" target="_blank">Resume</a></li>
         </ul>
       </nav>
     </div>

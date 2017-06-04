@@ -14,7 +14,8 @@ author :
   github : https://github.com/selkins13
   facebook : https://www.facebook.com/selkins13
   resume : https://github.com/selkins13/selkins13.github.io/blob/master/SarahElkinsResume.md
-  
+  home : https://selkins13.github.io/
+
 markdown : kramdown
 highlighter : rouge
 baseurl :
