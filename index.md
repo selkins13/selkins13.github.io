@@ -3,6 +3,11 @@ layout: default
 title: Sarah Elkins
 subtitle: About Me
 ---
+<img align="middle" src="./assets/images/HeadShot.jpg" alt="Sarah Elkins" style="border-radius:50%; display:block; margin:auto;" width="200" height="200">  
+
+# Sarah Elkins
+## About Me
+
 ***
 
 I am a proud mother of 2 children and have been married for over 17 years to a wonderful husband.  
