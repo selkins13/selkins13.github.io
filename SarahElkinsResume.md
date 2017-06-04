@@ -4,7 +4,7 @@ title: Sarah Elkins
 subtitle: Resume
 ---
 
-<img src="./assets/images/HeadShot.jpg" width="100">   
+<img align="middle" src="./assets/images/HeadShot.jpg" alt="Sarah Elkins" style="border-radius:50%; display:block; margin:auto;" width="200" height="200">  
 
 # SARAH ELKINS  
 ***  
