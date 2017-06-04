@@ -1,1 +1,24 @@
-theme: jekyll-theme-modernist
+url : https://selkins13.github.io
+code : https://github.com/selkins13/selkins13.github.io
+title : Sarah Elkins
+subtitle : About Me
+
+author :
+  name : Sarah Elkins
+  email : mailto:selkins13@gmail.com
+  description : Get to know me
+  markdown : https://github.com/selkins13/selkins13.github.io/blob/master/README.md
+  linkedin: linkedin.com/in/sarah-elkins-93719742
+  github : https://github.com/selkins13
+  facebook : https://github.com/selkins13
+  resume : https://github.com/selkins13/selkins13.github.io/blob/master/SarahElkinsResume.md
+  
+markdown : kramdown
+highlighter : rouge
+baseurl :
+
+# Default date format is "ordinal" (resulting in "July 22nd 2016")
+# You can customize the format as defined in
+# http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
+# Additionally, %o will give you the ordinal representation of the day
+date_format: "ordinal"
