@@ -7,7 +7,7 @@ subtitle: Resume
 <img align="middle" src="./assets/images/HeadShot.jpg" alt="Sarah Elkins" style="border-radius:50%; display:block; margin:auto;" width="200" height="200">  
 
 <h1 align="center">{{ page.title }}</h1>  
-  
+
 ***  
 1202 Plateau Trail, Georgetown, Texas 78626 | (270) 293-8340 | sarahelkins13@hotmail.com   
 [LinkedIn: linkedin.com/in/sarah-elkins-93719742](linkedin.com/in/sarah-elkins-93719742)  
@@ -15,6 +15,65 @@ subtitle: Resume
 ## Education
 __Murray State University__, Murray, KY  
 _Bachelor of Science, Computer Information Systems; Dec 2013 | Grade Point Average 3.35_  
+
+## Knowledge, Skills and Abilities
+### Technology  
+__Database Knowledge__  
+    Microsoft SQL  
+    PostgreSQL  
+    Redis  
+
+__Operating System Knowledge__   
+    Linux (RedHat, Centos, Fedora)  
+    Windows    
+
+__Build & Test Knowledge__  
+    Jenkins  
+    Electric Commander  
+    HPE Quality Center (ALM)  
+    Nexus  
+    Selenium  
+
+__DevOps Technologies__  
+    Docker  
+    OpenStack  
+    VMWare  
+    Hubots  
+    ChatOps (Slack, FlowDock)  
+
+__Enterprise Hosted Source Code Management Systems__   
+    GitHub Enterprise  
+    Gerrit  
+    Team Foundation Server  
+    CollabNet TeamForge  
+    Subversion Edge  
+
+__Experience with several coding languages and applications, including:__  
+    Shell/Bash  
+    Markdown  
+    Subversion  
+    Git  
+    Powershell  
+    CoffeeScript  
+    HTML  
+    SQL  
+    Python  
+    Perl  
+
+### Customer Service
+  Knowledgeable in the principles and procedures for providing outstanding customer service  
+  Ability to handle various customer service issues with tact and diplomacy in a confidential manner  
+  Solicit and obtain relevant information through different types of communication  
+  Evaluate situations and develop appropriate reaction, establish priorities and resolve complex issues  
+
+### Time Management
+  Ability to establish and implement effective administrative programs and procedures  
+  Ability to plan and organize daily work routine and establish priorities for the completion of work in accordance with sound time management methodology  
+
+### Supervisory Skills
+  Planned, assigned, supervised, trained and evaluated the work of subordinate staff  
+  Assisted in coordinating communications  
+  Create and maintained work schedules for subordinate staff  
 
 ## Experience  
 __Hewlett Packard Enterprise__, Austin, Texas  
@@ -57,28 +116,3 @@ _Telecommunications Operator; 2008 – 2011_
   *	Monitored and responded to a variety of technical systems and alarms
   *	Entered and gathered data with National Crime Information Computer and Law Information Network of Kentucky (NCIC/LINK) database systems
   *	Gathered and disseminated information to the emergency personnel
-
-## Knowledge, Skills and Abilities
-### Technology  
-  *	Operating System Knowledge – Linux, Windows  
-  *	Configured and maintained Source Code Management systems on an enterprise level  
-       _GitHub Enterprise, Gerrit, Team Foundation Server, CollabNet TeamForge, Subversion Edge_
-
-  * Experience with several coding languages  
-       _Shell/Bash, CoffeeScript, HTML, SQL, Python, Perl_
-
-
-### Customer Service
-  * Knowledgeable of the principles and procedures for providing outstanding customer service
-  * Ability to handle various customer service issues with tact and diplomacy in a confidential manner
-  * Solicit and obtain relevant information through different types of communication
-  * Evaluate situations and develop appropriate reaction, establish priorities and resolve complex issues
-
-### Time Management
-  * Ability to establish and implement effective administrative programs and procedures
-  * Ability to plan and organize daily work routine and establish priorities for the completion of work in accordance with sound time management methodology
-
-### Supervisory Skills
-  * Planned, assigned, supervised, trained and evaluated the work of subordinate staff
-  * Assisted in coordinating communications
-  * Create and maintained work schedules for subordinate staff
