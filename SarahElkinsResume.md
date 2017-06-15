@@ -12,7 +12,7 @@ subtitle: Resume
 1202 Plateau Trail, Georgetown, Texas 78626 | (270) 293-8340 | sarahelkins13@hotmail.com   
 [LinkedIn: linkedin.com/in/sarah-elkins-93719742](linkedin.com/in/sarah-elkins-93719742)  
 [Download Resume](/documents/SarahElkinsResume.docx)  
-[Download References](/documentsSarahElkinsReferences.docx)
+[Download References](/documents/SarahElkinsReferences.docx)
 
 ## Education
 __Murray State University__, Murray, KY  
