@@ -11,6 +11,8 @@ subtitle: Resume
 ***  
 1202 Plateau Trail, Georgetown, Texas 78626 | (270) 293-8340 | sarahelkins13@hotmail.com   
 [LinkedIn: linkedin.com/in/sarah-elkins-93719742](linkedin.com/in/sarah-elkins-93719742)  
+[Download Resume](/documents/SarahElkinsResume.docx)  
+[Download References](/documentsSarahElkinsReferences.docx)
 
 ## Education
 __Murray State University__, Murray, KY  
@@ -65,7 +67,7 @@ __Experience with several coding languages and applications, including:__
 
   Ability to handle various customer service issues with tact and diplomacy in a confidential manner  
   Solicit and obtain relevant information through different types of communication  
-  
+
   Evaluate situations and develop appropriate reaction, establish priorities and resolve complex issues  
 
 ### Time Management
