@@ -9,7 +9,7 @@ subtitle: About Me
 <h2 align="center">{{ page.subtitle }}</h2>
 
 
-I am a proud mother of 2 children and have been married for over 17 years to a wonderful husband. My family and I currently reside in Georgetown, Texas.  We love the proximity to Austin, multiple lakes to fish and the weather.  
+I am a proud mother of 2 children and have been married for a long time (*cough cough* 20 years) to a wonderful husband. My family and I currently reside in Georgetown, Texas.  We love the proximity to Austin, multiple lakes to fish and the weather.  
 
 <img src="./assets/images/Family.JPG" width="300">    
 
