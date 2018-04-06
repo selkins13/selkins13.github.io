@@ -9,10 +9,14 @@ subtitle: Resume
 <h1 align="center">{{ page.title }}</h1>  
 
 ***  
-1202 Plateau Trail, Georgetown, Texas 78626 | (270) 293-8340 | sarahelkins13@hotmail.com   
+1203 Dayton Drive, Round Rock, Texas 78665 | (270) 293-8340 | sarahelkins13@hotmail.com   
 [LinkedIn: linkedin.com/in/sarah-elkins-93719742](linkedin.com/in/sarah-elkins-93719742)  
-[Download Resume](/documents/SarahElkinsResume.docx)  
-[Download References](/documents/SarahElkinsReferences.docx)
+
+<p align="center"> 
+
+<button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsReferences.docx">Download References</a></button> <button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsCoverLetter.docx">Download Cover Letter</a></button> <button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsReferences.docx">Download Resume</a></button> 
+
+</p>
 
 ## Education
 __Murray State University__, Murray, KY  
