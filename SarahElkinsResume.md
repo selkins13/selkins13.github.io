@@ -14,7 +14,7 @@ subtitle: Resume
 
 <p align="center"> 
 
-<button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsReferences.docx">Download References</a></button> <button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsCoverLetter.docx">Download Cover Letter</a></button> <button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsReferences.docx">Download Resume</a></button> 
+<button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsResume.docx">Download Resume</a></button> <button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsCoverLetter.docx">Download Cover Letter</a></button> <button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsReferences.docx">Download References</a></button> 
 
 </p>
 
