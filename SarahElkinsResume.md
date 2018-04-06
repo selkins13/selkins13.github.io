@@ -9,7 +9,7 @@ subtitle: Resume
 <h1 align="center">{{ page.title }}</h1>  
 
 ***  
-1202 Plateau Trail, Georgetown, Texas 78626 | (270) 293-8340 | sarahelkins13@hotmail.com   
+1203 Dayton Drive, Round Rock, Texas 78665 | (270) 293-8340 | sarahelkins13@hotmail.com   
 [LinkedIn: linkedin.com/in/sarah-elkins-93719742](linkedin.com/in/sarah-elkins-93719742)  
 [Download Resume](/documents/SarahElkinsResume.docx)  
 [Download References](/documents/SarahElkinsReferences.docx)
