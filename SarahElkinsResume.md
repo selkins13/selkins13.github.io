@@ -12,13 +12,9 @@ subtitle: Resume
 1203 Dayton Drive, Round Rock, Texas 78665 | (270) 293-8340 | sarahelkins13@hotmail.com   
 [LinkedIn: linkedin.com/in/sarah-elkins-93719742](linkedin.com/in/sarah-elkins-93719742)  
 
-<p align="center> 
+<p align="center"> 
 
-<button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsReferences.docx">Download Resume</a></button>
-
-<button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsReferences.docx">Download References</a></button> 
-
-<button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsCoverLetter.docx">Download Cover Letter</a></button>
+<button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsReferences.docx">Download References</a></button> <button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsCoverLetter.docx">Download Cover Letter</a></button> <button><a href="https://github.com/selkins13/selkins13.github.io/raw/master/documents/SarahElkinsReferences.docx">Download Resume</a></button> 
 
 </p>
 
