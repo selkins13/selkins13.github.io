@@ -46,6 +46,7 @@ __DevOps Technologies__
     VMWare  
     Hubots  
     ChatOps (Slack, FlowDock)  
+    Jira Software  
 
 __Enterprise Hosted Source Code Management Systems__   
     GitHub Enterprise  
@@ -87,7 +88,12 @@ __Experience with several coding languages and applications, including:__
 
 ## Experience  
 __Hewlett Packard Enterprise__, Austin, Texas  
-_Source Code Management IT Developer/Engineer, April 2014 – Present_  
+_Solutions Architect, April 2017 - Present_  
+_Source Code Management IT Developer/Engineer, April 2014 – April 2017_  
+  * Assisted teams in delivering mobile applications to the iTunes and Google Play stores.  
+  
+  * Assisted in budgeting and roadmap discussions regarding applications hosted within the company.  
+  
   * Developed End-to-End Pipelines for application deployment and upgrades  
 
   *	Technical Contact for Vendor Relationships  
