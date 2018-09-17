@@ -71,23 +71,39 @@ __Experience with several coding languages and applications, including:__
 __Hewlett Packard Enterprise__, Austin, Texas  
 _Solutions Architect, April 2017 - Present_  
 _Source Code Management IT Developer/Engineer, April 2014 – April 2017_  
-• Led and assisted cross-functional teams across different geographical locations and functional expertise with adopting and adapting to DevOps/Agile workflows.   
-• Lead teams in delivering mobile applications to the iTunes and Google Play stores.  
-• Budgeted and lead roadmap discussions regarding applications hosted within the company.  
-• Developed End-to-End Pipelines for application deployment and upgrades  
-• Technical Contact for Vendor Relationships  
-• Analyzed and developed technical documentation and presentations  
-• Social Coding Evangelist  
-• Worked with volunteer organization to help host Hewlett Packard Enterprise CodeWars in Austin, Texas area.  This event brings high school students from the central Texas area together for a competition testing their coding skills.  
-• Maintained mission critical applications with 24/7 support across the enterprise  
-• Developed and provided verbal and written training to application administrators and users  
-• Created and executed implementation plans for Source Code Management system installations and upgrades  
-• Debugged issues on Linux and Windows systems  
-• Maintained application information within Git repositories on GitHub Enterprise  
-• Collaborated with team members in various geographical locations on Git repositories using GitHub best practices within the GHE system and via ChatOps tools  
-• Implemented and maintained Source Code Management systems with high-availability clustering over multiple geographical locations  
-• Expert in Agile development cycle  
-• Developed, hosted and presented training sessions with development teams on the use of various tools within the company (TeamForge, GitHub Enterprise, Team Foundation Services, Jira Software, etc.)  
+  * Led and assisted cross-functional teams across different geographical locations and functional expertise with adopting and adapting to DevOps/Agile workflows.   
+
+  * Lead teams in delivering mobile applications to the iTunes and Google Play stores.  
+
+  * Budgeted and lead roadmap discussions regarding applications hosted within the company.  
+
+  * Developed End-to-End Pipelines for application deployment and upgrades  
+
+  * Technical Contact for Vendor Relationships  
+
+  * Analyzed and developed technical documentation and presentations  
+
+  * Social Coding Evangelist  
+
+  * Worked with volunteer organization to help host Hewlett Packard Enterprise CodeWars in Austin, Texas area.  This event brings high school students from the central Texas area together for a competition testing their coding skills.  
+
+  * Maintained mission critical applications with 24/7 support across the enterprise  
+
+  * Developed and provided verbal and written training to application administrators and users  
+
+  * Created and executed implementation plans for Source Code Management system installations and upgrades  
+
+  * Debugged issues on Linux and Windows systems  
+
+  * Maintained application information within Git repositories on GitHub Enterprise  
+
+  * Collaborated with team members in various geographical locations on Git repositories using GitHub best practices within the GHE system and via ChatOps tools  
+
+  * Implemented and maintained Source Code Management systems with high-availability clustering over multiple geographical locations  
+
+  * Expert in Agile development cycle  
+
+  * Developed, hosted and presented training sessions with development teams on the use of various tools within the company (TeamForge, GitHub Enterprise, Team Foundation Services, Jira Software, etc.)  
 
 __Murray State University__, Murray, KY  
 _Communications Supervisor, June 2013 – March 2014_  
