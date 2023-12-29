@@ -1,6 +1,6 @@
 **SARAH ELKINS**  
 601 Pumpkin Ridge Road, Dover, Tennessee 37058 | (270) 293-8340 | selkins13@icloud.com  
-LinkedIn: [linkedin.com/in/sarah-elkins-93719742](https://linkedin.com/in/sarah-elkins-93719742) | Portfolio: [selkins13.github.io](https://selkins13.github.io)
+[LinkedIn](https://linkedin.com/in/sarah-elkins-93719742) | [Portfolio](https://selkins13.github.io)
 
 ---
 
@@ -35,6 +35,7 @@ Bachelor of Science, Computer Information Systems; Dec 2013
 
 **KPMG LLP**  
 *Technology Advisor, January 2019 - Present*
+- Assessed customer development practices for transformation
 - Prepared technical documentation and presentations
 - Managed engagement financials, status updates, and workpapers
 - Delivered presentations on Agile and DevOps methodologies and toolchain options
@@ -78,7 +79,3 @@ Bachelor of Science, Computer Information Systems; Dec 2013
 - Effective communication and coordination with teams
 - Advocacy of standard and best practices in the development lifecycle
 - Leadership in tool transitions and DevOps/Agile practices
-
----
-
-*Note: Customize the content as needed and ensure that the resume adheres to industry-specific standards.*
