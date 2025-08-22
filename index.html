@@ -215,7 +215,7 @@
         a.href = '#' + h.id;
         a.setAttribute('aria-label', 'Link to section ' + h.textContent);
         a.style.marginLeft = '.4rem';
-        a.textContent = '¶';
+        // a.textContent = '¶'; // keep anchor, no visible text
         a.className = 'muted';
         h.appendChild(a);
       });
