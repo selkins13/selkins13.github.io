@@ -1,180 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarah Elkins - Professional Background</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sarah Elkins — Portfolio</title>
+  <meta name="description" content="Portfolio of Sarah Elkins — developer advocacy, enablement, and operations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f8f8f8;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg:#0b0c0f;
+      --card:#111318;
+      --muted:#9aa4b2;
+      --text:#e6e8eb;
+      --accent:#5b9cff;
+      --accent-2:#8aaeff;
+      --max: 880px;
+      --radius:16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
     }
-
-    header {
-      background-color: #007bff;
-      color: #fff;
-      text-align: center;
-      padding: 1em 0;
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb; --card:#ffffff; --text:#1f2430; --muted:#526071;
+        --accent:#0b5fff; --accent-2:#2d7bff;
+        --shadow: 0 8px 24px rgba(31,36,48,.08);
+      }
     }
-
-    section {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
+    * { box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 70% -10%, rgba(91,156,255,.15), transparent 60%),
+                  radial-gradient(1000px 700px at -10% 20%, rgba(141,110,255,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.65;
     }
-
-    h2 {
-      color: #007bff;
+    a{ color:var(--accent); text-decoration:none }
+    a:hover{ text-decoration:underline }
+    .container{ width:100%; max-width: var(--max); margin: 0 auto; padding: 0 20px }
+    header.site{
+      position: sticky; top:0; z-index: 10; backdrop-filter: blur(6px);
+      background: color-mix(in oklab, var(--bg), transparent 15%);
+      border-bottom:1px solid color-mix(in oklab, var(--muted), transparent 80%);
     }
-
-    h3 {
-      color: #333;
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      height:60px;
     }
-
-    p {
-      text-align: justify;
+    .brand{ display:flex; align-items:center; gap:.75rem; font-weight:700; letter-spacing:.2px }
+    .brand .dot{ width:10px; height:10px; border-radius:50%; background: var(--accent); box-shadow:0 0 0 4px color-mix(in oklab, var(--accent), transparent 75%); }
+    .nav a{ color:var(--text); opacity:.9 }
+    .nav .links{ display:flex; gap:1rem; align-items:center }
+    .btn{
+      display:inline-block; padding:.6rem .9rem; border-radius:10px; font-weight:600;
+      background:linear-gradient(180deg, var(--accent), var(--accent-2));
+      color:white !important; box-shadow: var(--shadow); border:0;
     }
-
-    ul {
-      margin-bottom: 10px;
+    .btn:hover{ filter:brightness(.98); text-decoration:none }
+    .hero{
+      padding: 56px 0 24px;
     }
-    
-    #imagegroup0 div {
-      display:inline-block;
+    .hero .title{ font-size: clamp(28px, 2.8vw + 12px, 44px); margin: 0 0 .25rem; letter-spacing: -.5px }
+    .hero .subtitle{ margin:0; color:var(--muted) }
+    .surface{
+      background: var(--card);
+      border:1px solid color-mix(in oklab, var(--muted), transparent 82%);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
-    
-    img {
-      width:200px;
-      height:200px;
+    main.content{ padding: 20px 0 60px }
+    .layout{
+      display:grid; gap: 24px;
+      grid-template-columns: 1fr;
     }
-    
-    table {
-    	text-align:center;
-        margin-left:auto;
-        margin-right:auto;
-        width: 100%;
+    @media (min-width: 980px){
+      .layout{ grid-template-columns: minmax(0,1fr) 280px; align-items:start }
     }
-    
+    .md{
+      padding: 28px; overflow:hidden;
+    }
+    .md h1,.md h2,.md h3{ line-height:1.25 }
+    .md h1{ font-size:1.9rem; margin-top:1.2em }
+    .md h2{ font-size:1.5rem; margin-top:1.4em; color:var(--accent) }
+    .md h3{ font-size:1.15rem; margin-top:1.2em }
+    .md p{ margin: .75rem 0 }
+    .md img{ max-width:100%; height:auto; border-radius:12px }
+    .md table{ width:100%; border-collapse:collapse; overflow:auto; display:block }
+    .md table th, .md table td{ padding:.6rem .7rem; border-bottom:1px solid color-mix(in oklab, var(--muted), transparent 82%) }
+    .md ul, .md ol{ padding-left: 1.15rem }
+    .md hr{ border:0; height:1px; background: color-mix(in oklab, var(--muted), transparent 80%); margin: 1.5rem 0 }
+    pre{ background: color-mix(in oklab, var(--muted), transparent 88%); padding:1rem; border-radius:12px; overflow:auto }
+    code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace }
+    /* Sidebar */
+    .sidebar{ position:sticky; top:84px; padding: 20px; display:flex; flex-direction:column; gap:14px }
+    .toc{ list-style:none; margin:0; padding:0 }
+    .toc li{ margin:.25rem 0 }
+    .toc a{ color:var(--muted) }
+    .toc a.active{ color:var(--accent); font-weight:600 }
+    .card{
+      padding:20px;
+      border-radius:12px;
+      border:1px solid color-mix(in oklab, var(--muted), transparent 82%);
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card), #000 4%), var(--card));
+    }
+    footer.site{
+      border-top:1px solid color-mix(in oklab, var(--muted), transparent 80%);
+      color:var(--muted);
+      padding: 28px 0;
+    }
+    .muted{ color:var(--muted) }
+    .hidden{ display:none }
+    .skip a{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip a:focus{ position:static; width:auto; height:auto; padding:.5rem; background:var(--accent); color:#fff; border-radius:8px }
+    /* Back to top */
+    .to-top{
+      position:fixed; right:20px; bottom:20px; z-index:20; opacity:0; pointer-events:none;
+      transition: .2s ease; transform: translateY(6px);
+    }
+    .to-top.show{ opacity:1; pointer-events:auto; transform:none }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Sarah Elkins</h1>
-    <p style="text-align:center">Proud Mother, GitHub Enthusiast, and Future-focused Professional</p>
+  <div class="skip"><a href="#main">Skip to content</a></div>
+  <header class="site">
+    <div class="container nav">
+      <div class="brand" aria-label="Home">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Sarah&nbsp;Elkins</span>
+      </div>
+      <nav class="links" aria-label="Primary">
+        <a href="mailto:selkins13@icloud.com" class="muted">Email</a>
+        <a href="https://linkedin.com/in/sarah-elkins-93719742" class="muted">LinkedIn</a>
+        <a href="https://selkins13.github.io" class="muted">Portfolio</a>
+        <a href="#main" class="btn">View Work</a>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I take great pride in being a mother to two wonderful children and celebrating a lasting union of 25 years with my amazing husband. Our blessings extend further with the joy of two delightful grandchildren. Embracing the stage of empty nesters, given that our children reside in various parts of the country, my husband and I made a conscious choice to lead a semi-nomadic lifestyle, fully immersing ourselves as full-time RVers.
-    </p>
-    
-    <div class="table-responsive d-flex align-items-center">
-    <table>
-    <tr>
-        <td>
-          <div id="image0.0">
-            <figure>
-				<img src="https://github.com/selkins13/selkins13.github.io/assets/13577383/33dcaf3f-3727-48cc-a771-c4055e4822f3"/>
-                <figcaption style="text-align:center">Our Sailor Son</figcaption> 
-            </figure>
+  <section class="hero">
+    <div class="container">
+      <h1 class="title">Building communities, enabling developers, and shipping clarity.</h1>
+      <p class="subtitle">Senior Engagement Manager & Developer Advocate — GitHub Services</p>
+    </div>
+  </section>
+
+  <main id="main" class="content">
+    <div class="container layout">
+      <article class="surface md" id="md-root" aria-live="polite">
+        <p class="muted">Loading content…</p>
+      </article>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h3 style="margin-top:0">On this page</h3>
+          <ul class="toc" id="toc"></ul>
         </div>
-        </td>
-        <td>
-        <div id="image0.1">
-            <figure>
-                <img src="https://github.com/selkins13/selkins13.github.io/assets/13577383/ffacae54-2902-415a-a848-4168b7a98b27"/>
-                <figcaption style="text-align:center">Our Daughter and Grands</figcaption>
-            </figure>
+        <div class="card">
+          <h3 style="margin-top:0">Contact</h3>
+          <p class="muted" style="margin:.25rem 0 0">Dover, TN · (270) 293-8340</p>
+          <a class="btn" href="mailto:selkins13@icloud.com" style="margin-top:.6rem">Get in touch</a>
         </div>
-        </td>
-        <td>
-        <div id="image0.2">
-            <figure>
-                <img src="https://github.com/selkins13/selkins13.github.io/assets/13577383/29497ef1-382f-476b-a3e5-eceb2a502c44"/>
-                <figcaption style="text-align:center">The two of us</figcaption>
-            </figure>
-        </div>
-        </td>
-    </tr>
-    </table>
-	</div>
-    
-    <p>
-      From the good ol' lakes of Kentucky, I'm all about hitting the road and checking out new spots around the country and beyond. Wherever we roll, you'll catch us casting a line – fishing is our jam. Oh, and I'm a big fan of getting lost in a good book, especially anything Harry Potter. My family and I? Total Potter-Heads! 🧙‍♂️📚✨
-    </p>
-    <center><img src="https://selkins13.github.io/assets/images/HP.jpg" alt="The Potter Head meeting"></center>
-    <!-- Add more content about yourself as needed -->
+      </aside>
+    </div>
+  </main>
 
-  </section>
+  <footer class="site">
+    <div class="container" style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <div>© <span id="year"></span> Sarah Elkins</div>
+      <div class="muted">Built with ❤️ & Markdown</div>
+    </div>
+  </footer>
 
-  <section>
-    <h2>My Work at GitHub</h2>
-    <p>
-      For the past four years, I've been part of the GitHub Services crew, and let me tell you, I absolutely adore every minute of it! 💖 I kicked things off as an Implementation Engineer, diving headfirst into a gig with a big government client. Our mission? To give their old-school development tools a glow-up with a full-scale transformation into the GitHub universe. Here's a snapshot of the action:
-    </p>
-    <ul>
-    <li>Crafted the GitHub Handbook for them</li>
-    <liT>Teamed up for the nitty-gritty of standards and policies</li>
-    <li>Set up smooth onboarding pathways with all the needed assets and instructions</li>
-    <li>Hosted lively workshops and webinars, schooling their developers, program managers, and leadership on how GitHub could revolutionize their development lifecycle, security, and practices</li>
-    </ul>
-    <p>
-      Our efforts spoke volumes. Fast forward to today, and my team is still embedded with the same customer, riding the wave of GitHub features we introduced over the past four years. We've turned GitHub into their go-to full development platform.
-    </p>
-    <p>
-      Now, picture this: Two years ago, I shifted gears from Implementation/DevOps Engineer to the role of Public Sector Engagement Manager. And guess what? I've been promoted to Senior Engagement Manager since then. In this gig, I'm not just glued to a handful of customers; I'm the maestro orchestrating the whole symphony of services for all our Public Sector clients and my stellar team. Here's how I've been leveling up:
-    </p>
-    <ul>
-      <li>Streamlined the process for our Services Organization to handle contracting deliveries to our Partners</li>
-      <li>Teamed up with our Partners for seamless onboarding and delivery</li>
-      <li>Standardized the ins and outs of what an Engagement Manager tackles for every services delivery</li>
-      <li>Jumped into the nitty-gritty of scoping and pre-sales talks, making sure customers get exactly what they need</li>
-      <li>Owned the entire services journey from pre-sales to resourcing, all the way through delivery and billing</li>
-      <li>Cooked up documentation and enablement goodies for our fantastic Engagement Managers and Project Managers, laying out their roles and responsibilities</li>
-    </ul>
-    <p>
-      It's been a wild ride, and I'm pumped for what's next! 🚀✨
-    </p>
-    <!-- Add more content about your work at GitHub as needed -->
+  <!-- Markdown parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    // Helpers
+    const $ = (s, r=document) => r.querySelector(s);
+    const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-  </section>
+    // Year
+    $("#year").textContent = new Date().getFullYear();
 
-  <section>
-    <h2>My Previous Work</h2>
-    <p>
-      During my five-year stint at Hewlett Packard Enterprise, I wrapped up my journey as a Product Development Engineer. In this pivotal role, I took charge of designing and implementing third-party Source Code Management (SCM) tools that fueled the creativity of the company’s internal developers. Picture me diving into a toolkit that included the likes of Team Foundation Server (on-premise), GitHub Enterprise, and CollabNet TeamForge (Subversion/Gerrit). And that's not all—I was knee-deep in the action with a stack of Build/Deploy, DevOps, and Quality Management tools hosted by my team, featuring Jira, Jenkins, FlowDock, Hubot, and Docker.
-    </p>
-    <p>
-      Beyond the tech hustle, I wore the hat of an in-house advocate for DevOps practices and Social Coding. I stood in front of my fellow developers and business groups, sharing insights and best practices. It was a blast demonstrating how DevOps wizardry could sprinkle a bit of magic into their daily grind—think automation, pipelines, APIs, and ChatOps swooping in to tackle those repetitive tasks. Whether it was sparking life into a Pull Request in GitHub Enterprise or shooting a message to Hubot in a ChatOps tool, I reveled in showing how these simple actions set off a cascade of automated events. And you know what else? I drummed into our developer community that if a job can be automated, it's a solid defense against the pesky "Human Error" gremlin.
-    </p>
-    <p>
-      Now, here's a twist in my journey—my background doesn't hail from the traditional IT realms. Nope, six years before joining the HPE crew, I held the fort as a Telecommunications Operator, aka the go-to person for Emergency 911 calls. Picture this: I'm the lifeline, taking in emergency calls, swiftly gathering crucial info, and orchestrating the dispatch dance with agencies like Police, Fire, Rescue, and EMS. Juggling tasks like de-escalating situations, guiding callers over the phone, and multitasking notes in the recording system—all in real-time—it was no walk in the park. Yet, I soaked up every ounce of the challenge and found it incredibly fulfilling. In my final nine months as a Telecommunications Supervisor, I took the reins in crafting training materials and programs for the next wave of Telecommunications Operators. Talk about a rollercoaster of experiences! 🚀🌟
-    </p>
-    <!-- Add more content about your previous work as needed -->
+    // Render Markdown
+    async function renderMarkdown(){
+      const root = $("#md-root");
+      try{
+        const res = await fetch('index.md', { cache:'no-cache' });
+        if(!res.ok) throw new Error('Failed to load index.md');
+        const text = await res.text();
+        marked.setOptions({ mangle:false, headerIds:true });
+        root.innerHTML = marked.parse(text);
+        enhanceHeadings();
+        buildTOC();
+      }catch(e){
+        root.innerHTML = '<p role="alert">Error loading content. Ensure <code>index.md</code> sits alongside this file.</p>';
+        console.error(e);
+      }
+    }
 
-  </section>
+    // Add IDs to headings and link anchors for better UX
+    function enhanceHeadings(){
+      $$('.md h2, .md h3', $("#md-root").parentNode).forEach(h => {
+        if(!h.id){
+          h.id = h.textContent
+            .toLowerCase()
+            .replace(/[^\w]+/g,'-')
+            .replace(/^-+|-+$/g,'');
+        }
+        // Add anchor link
+        const a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.setAttribute('aria-label', 'Link to section ' + h.textContent);
+        a.style.marginLeft = '.4rem';
+        a.textContent = '¶';
+        a.className = 'muted';
+        h.appendChild(a);
+      });
+    }
 
-  <section>
-    <h2>My Future Work</h2>
-    <p>
-     I'm on a perpetual quest to elevate my skills and revel in those "aha" moments for both individuals and teams I engage with. There's an art to organizational finesse and process optimization that fuels my passion. I view life through the lens of dissecting outcomes, ever curious about how they were achieved and how they could be perfected.
-    </p>
-    <p>
-      This intrinsic curiosity and knack for improvement have been the driving forces behind everything I do. Whether it's unraveling inefficiencies in a process or orchestrating a seamless, low-touch workflow, I've made it a life pursuit. Now, I'll admit, my commitment to this quest can occasionally bewilder my husband – he might say it drives him a tad crazy. Yet, for me, it's not just a task; it's a therapeutic dive into what I love and find utterly relaxing. After all, the thrill of turning chaos into streamlined simplicity is my kind of zen. 🌟💡
-    </p>
-    <!-- Add more content about your future work as needed -->
+    // Build sidebar TOC from h2/h3
+    function buildTOC(){
+      const toc = $("#toc");
+      const headings = $$('.md h2, .md h3', $("#md-root").parentNode);
+      const items = [];
+      headings.forEach(h => {
+        const lvl = h.tagName === 'H2' ? 2 : 3;
+        const li = document.createElement('li');
+        li.style.marginLeft = (lvl === 3 ? '12px' : '0');
+        const a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent.replace('¶','').trim();
+        li.appendChild(a);
+        items.push(li);
+      });
+      toc.innerHTML = '';
+      items.forEach(li => toc.appendChild(li));
 
-  </section>
+      // Scroll spy
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry => {
+          const id = entry.target.id;
+          const link = $(`#toc a[href="#${id}"]`);
+          if(link){
+            link.classList.toggle('active', entry.isIntersecting);
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+      headings.forEach(h => io.observe(h));
+    }
 
+    // Back to top button
+    const toTop = document.createElement('a');
+    toTop.className = 'btn to-top';
+    toTop.href = '#';
+    toTop.textContent = 'Top';
+    document.body.appendChild(toTop);
+    window.addEventListener('scroll', ()=>{
+      if(window.scrollY > 400){ toTop.classList.add('show'); }
+      else { toTop.classList.remove('show'); }
+    });
+
+    renderMarkdown();
+  </script>
 </body>
 </html>
