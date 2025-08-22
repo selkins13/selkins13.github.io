@@ -1,25 +1,16 @@
----
-layout: default
-title: Sarah Elkins
-subtitle: About Me
-lead: Building communities, enabling developers, and shipping clarity.
----
-<img align="middle" src="./assets/images/HeadShot.jpg" alt="Sarah Elkins" style="border-radius:50%; display:block; margin:auto;" width="200" height="200">  
-
-<h1 align="center">{{ page.title }}</h1>
-<h2 align="center">{{ page.subtitle }}</h2>
+## About Me
 
 I’m a developer advocate, engagement leader, and lifelong learner with a passion for helping others succeed in technology. 
 Outside of work, I’m also a proud mother, wife, and grandmother. My husband and I enjoy a semi-nomadic lifestyle as full-time RVers, 
 traveling across the U.S. and making the most of the journey. I love reading (yes, I’m a Potter-Head 📚✨), fishing, and exploring new places 
 with my family.
 
-<img src="./assets/images/HP.jpg" width="300">  
+![Family Fun at Three Broomsticks](./assets/images/HP.jpg)
 
 ---
 
 ## 🧰 My Work at GitHub
----
+
 
 For the past four years at GitHub, I’ve had the privilege of working at the intersection of **developer enablement, customer success, and community advocacy**.
 
@@ -35,6 +26,8 @@ I began my GitHub career as an **Implementation Engineer**, where I worked with 
 - Driving adoption of GitHub best practices in **DevOps, security, and open source collaboration**  
 
 Throughout my time at GitHub, I’ve combined **technical expertise** with a passion for **teaching, community building, and storytelling**, helping customers and developers not just adopt GitHub—but thrive with it.
+
+---
 
 ## My Previous Work
 
@@ -52,8 +45,9 @@ I want to continue to grow my skills and watch the lightbulb light up for the pe
 
 I am also passionate about helping others.  I love to mentor and coach people to help them achieve their goals.  I have been told that I am a great teacher and that I can take complex topics and break them down into simple, easy to understand concepts.  I want to continue to do this in my career and help others achieve their goals, whether it is through training, mentoring, or just being a sounding board for ideas.
 
-## 🌟 Highlights & Achievements
 ---
+
+## 🌟 Highlights & Achievements
 
 - 📘 **Expert Services Engagement Lifecycle (2025):** Designed and delivered the full end-to-end documentation, standardizing processes across pre-delivery, delivery, and post-delivery phases.  
 - 📝 **GitHub Handbook:** Authored the GitHub Handbook, a cornerstone resource for enterprise customers adopting GitHub.  
@@ -62,8 +56,9 @@ I am also passionate about helping others.  I love to mentor and coach people to
 - ⚡ **Agile & DevOps Transformation:** Guided enterprise customers at KPMG and HPE in adopting modern workflows, CI/CD pipelines, and GitHub best practices.  
 - 🏆 **Recognition:** Awarded for leadership and impact in developer enablement and customer success initiatives.  
 
-## 🕰️ Previous Work
 ---
+
+## 🕰️ Previous Work
 
 Before joining GitHub, I built my career in technology consulting and enterprise DevOps transformations. At Hewlett Packard Enterprise, 
 I served as a **Solutions Architect** and **Source Code Management Engineer**, leading global teams in adopting GitHub Enterprise and Agile practices. 
@@ -73,8 +68,9 @@ At KPMG, I worked as a **Technology Advisor**, guiding clients through Agile and
 and strategic assessments. These experiences gave me a strong foundation in **developer enablement, cross-functional collaboration, 
 and large-scale transformation programs**.
 
-## 🚀 Future Work
 ---
+
+## 🚀 Future Work
 
 Looking ahead, I’m excited to continue expanding my impact as a **Developer Advocate**—creating content that resonates with developers, 
 building stronger communities, and amplifying developer feedback to shape better products. My goal is to use my blend of technical expertise, 
