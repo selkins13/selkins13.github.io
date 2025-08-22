@@ -16,7 +16,7 @@
       --text:#e6e8eb;
       --accent:#5b9cff;
       --accent-2:#8aaeff;
-      --max: 880px;
+      --max: 1400px;
       --radius:16px;
       --shadow: 0 10px 30px rgba(0,0,0,.25);
     }
@@ -61,7 +61,7 @@
     }
     .btn:hover{ filter:brightness(.98); text-decoration:none }
     .hero{
-      padding: 56px 0 24px;
+      padding: clamp(32px, 6vw, 72px) 0 24px;
     }
     .hero .title{ font-size: clamp(28px, 2.8vw + 12px, 44px); margin: 0 0 .25rem; letter-spacing: -.5px }
     .hero .subtitle{ margin:0; color:var(--muted) }
@@ -73,19 +73,20 @@
     }
     main.content{ padding: 20px 0 60px }
     .layout{
-      display:grid; gap: 24px;
+      display:grid; gap: clamp(16px, 2vw, 28px);
       grid-template-columns: 1fr;
     }
     @media (min-width: 980px){
-      .layout{ grid-template-columns: minmax(0,1fr) 280px; align-items:start }
+      .layout{ grid-template-columns: minmax(0,1fr) 320px; align-items:start }
     }
     .md{
-      padding: 28px; overflow:hidden;
+      padding: clamp(18px, 2.5vw, 32px);
+      overflow:hidden;
     }
     .md h1,.md h2,.md h3{ line-height:1.25 }
-    .md h1{ font-size:1.9rem; margin-top:1.2em }
-    .md h2{ font-size:1.5rem; margin-top:1.4em; color:var(--accent) }
-    .md h3{ font-size:1.15rem; margin-top:1.2em }
+    .md h1{ font-size: clamp(1.6rem, 2vw, 2rem); margin-top:1.2em }
+    .md h2{ font-size: clamp(1.3rem, 1.8vw, 1.6rem); margin-top:1.4em; color:var(--accent) }
+    .md h3{ font-size: clamp(1.05rem, 1.3vw, 1.2rem); margin-top:1.2em }
     .md p{ margin: .75rem 0 }
     .md img{ max-width:100%; height:auto; border-radius:12px }
     .md table{ width:100%; border-collapse:collapse; overflow:auto; display:block }
@@ -95,13 +96,13 @@
     pre{ background: color-mix(in oklab, var(--muted), transparent 88%); padding:1rem; border-radius:12px; overflow:auto }
     code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace }
     /* Sidebar */
-    .sidebar{ position:sticky; top:84px; padding: 20px; display:flex; flex-direction:column; gap:14px }
+    .sidebar{ position:sticky; top:84px; padding: clamp(12px, 1.8vw, 20px); display:flex; flex-direction:column; gap:14px }
     .toc{ list-style:none; margin:0; padding:0 }
     .toc li{ margin:.25rem 0 }
     .toc a{ color:var(--muted) }
     .toc a.active{ color:var(--accent); font-weight:600 }
     .card{
-      padding:20px;
+      padding: clamp(14px, 2vw, 20px);
       border-radius:12px;
       border:1px solid color-mix(in oklab, var(--muted), transparent 82%);
       background: linear-gradient(180deg, color-mix(in oklab, var(--card), #000 4%), var(--card));
@@ -184,24 +185,45 @@
     // Year
     $("#year").textContent = new Date().getFullYear();
 
-    // Render Markdown
-    async function renderMarkdown(){
-      const root = $("#md-root");
-      try{
-        const res = await fetch('index.md', { cache:'no-cache' });
-        if(!res.ok) throw new Error('Failed to load index.md');
-        const text = await res.text();
-        marked.setOptions({ mangle:false, headerIds:true });
-        root.innerHTML = marked.parse(text);
-        enhanceHeadings();
-        buildTOC();
-      }catch(e){
-        root.innerHTML = '<p role="alert">Error loading content. Ensure <code>index.md</code> sits alongside this file.</p>';
-        console.error(e);
-      }
+    // Build raw URLs for user pages to bypass Jekyll transforms
+    function guessRawUrls(filename){
+      const host = location.hostname;              // e.g. selkins13.github.io
+      const owner = host.split('.')[0];            // e.g. selkins13
+      const repo  = host;                          // repo for user pages is <user>.github.io
+      const branches = ['main','master','gh-pages'];
+      return branches.map(b => `https://raw.githubusercontent.com/${owner}/${repo}/${b}/${filename}`);
     }
 
-    // Add IDs to headings and link anchors for better UX
+    async function fetchText(url){
+      const res = await fetch(url, { cache: 'no-cache' });
+      if(!res.ok) throw new Error(res.status + ' ' + res.statusText);
+      return res.text();
+    }
+
+    async function renderMarkdown(){
+      const root = $("#md-root");
+      const candidates = ['index.md', ...guessRawUrls('index.md')];
+
+      for(const url of candidates){
+        try{
+          const text = await fetchText(url);
+          marked.setOptions({ mangle:false, headerIds:true });
+          root.innerHTML = marked.parse(text);
+          enhanceHeadings();
+          buildTOC();
+          return;
+        }catch(e){ /* try next */ }
+      }
+
+      root.innerHTML = `<p role="alert">
+        Could not load <code>index.md</code>.<br/>
+        Options:<br/>
+        1) Add a blank <code>.nojekyll</code> file so Pages serves raw Markdown.<br/>
+        2) Keep Jekyll and fetch from raw GitHub URL (<code>https://raw.githubusercontent.com/&lt;user&gt;/&lt;repo&gt;/&lt;branch&gt;/index.md</code>).<br/>
+      </p>`;
+    }
+
+    // Add ids and invisible anchor links (no ¶ symbol)
     function enhanceHeadings(){
       $$('.md h2, .md h3', $("#md-root").parentNode).forEach(h => {
         if(!h.id){
@@ -210,12 +232,12 @@
             .replace(/[^\w]+/g,'-')
             .replace(/^-+|-+$/g,'');
         }
-        // Add anchor link
+        // Keep linkability without visible symbol
         const a = document.createElement('a');
         a.href = '#' + h.id;
         a.setAttribute('aria-label', 'Link to section ' + h.textContent);
         a.style.marginLeft = '.4rem';
-        // a.textContent = '¶'; // keep anchor, no visible text
+        a.textContent = ''; // no visible symbol
         a.className = 'muted';
         h.appendChild(a);
       });
