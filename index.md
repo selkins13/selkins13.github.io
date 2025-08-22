@@ -5,7 +5,7 @@ Outside of work, I’m also a proud mother, wife, and grandmother. My husband an
 traveling across the U.S. and making the most of the journey. I love reading (yes, I’m a Potter-Head 📚✨), fishing, and exploring new places 
 with my family.
 
-![Family Fun at Three Broomsticks](./assets/images/HP.jpg)
+![Family at the beach](./assets/images/Family.jpg)
 
 ---
 
