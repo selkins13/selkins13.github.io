@@ -52,6 +52,12 @@ Looking ahead, I’m excited to continue expanding my impact as a **Developer Ad
 building stronger communities, and amplifying developer feedback to shape better products. My goal is to use my blend of technical expertise, 
 storytelling skills, and advocacy experience to inspire and enable developers worldwide.
 
+## 🤝 Developer Advocacy & Mentorship
+
+I’m passionate about **advocating for developers**—helping them understand not just how to use tools, but how to unlock their full potential through them. Whether I’m guiding customers in adopting GitHub best practices, or coaching teammates through complex engagements, I focus on enabling others to be more effective and confident.
+
+Beyond the technical side, I love **mentoring new colleagues**, building **onboarding resources**, and ensuring no one has to start from scratch. Helping people connect the dots, shorten their learning curve, and feel successful is one of the most rewarding parts of my work.
+
 ---
 
 ## 📄 Resume  
@@ -61,12 +67,3 @@ Looking for more details about my background?
 <a class="btn" href="./assets/SarahElkins_Resume.pdf" target="_blank">
   📥 Download My Resume
 </a>
-
-## 🌎 About Me
-
-I’m passionate about **advocating for developers**—helping them understand not just how to use tools, but how to unlock their full potential through them. Whether I’m guiding customers in adopting GitHub best practices, or coaching teammates through complex engagements, I focus on enabling others to be more effective and confident.
-
-That includes embracing <span class="ai-highlight">AI-powered tooling</span>. I use and advocate for assistants like <span class="ai-highlight">GitHub Copilot</span> to speed up documentation, improve developer productivity, and unlock new ways of learning. My focus is on showing others how <span class="ai-highlight">AI</span> can amplify—not replace—their expertise.
-
-Beyond the technical side, I love **mentoring new colleagues**, building **onboarding resources**, and ensuring no one has to start from scratch. Helping people connect the dots, shorten their learning curve, and feel successful is one of the most rewarding parts of my work.
-
