@@ -29,6 +29,7 @@
     }
     * { box-sizing:border-box }
     html,body{ height:100% }
+    html{ scroll-behavior: smooth; }
     body{
       margin:0;
       font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -46,10 +47,7 @@
       background: color-mix(in oklab, var(--bg), transparent 15%);
       border-bottom:1px solid color-mix(in oklab, var(--muted), transparent 80%);
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      height:60px;
-    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; height:60px; }
     .brand{ display:flex; align-items:center; gap:.75rem; font-weight:700; letter-spacing:.2px }
     .brand .dot{ width:10px; height:10px; border-radius:50%; background: var(--accent); box-shadow:0 0 0 4px color-mix(in oklab, var(--accent), transparent 75%); }
     .nav .links{ display:flex; gap:1rem; align-items:center }
@@ -59,8 +57,6 @@
       color:white !important; box-shadow: var(--shadow); border:0;
     }
     .btn:hover{ filter:brightness(.98); text-decoration:none }
-
-    /* Header Menu Button */
     .menu-toggle{
       border:1px solid color-mix(in oklab, var(--muted), transparent 60%);
       background: linear-gradient(180deg, color-mix(in oklab, var(--card), #000 4%), var(--card));
@@ -70,54 +66,32 @@
       cursor:pointer;
       font-weight:600;
     }
-
-    /* OVERLAY DROPDOWN (floating box) */
     .overlay{
       position: fixed; inset: 0; z-index: 25;
-      background: rgba(0,0,0,.0); /* transparent – we’ll close on outside click anyway */
-      pointer-events: none;        /* disabled until open */
+      background: rgba(0,0,0,0);
+      pointer-events: none;
       opacity: 0; transition: opacity .15s ease;
     }
-    .overlay.open{
-      pointer-events: auto;
-      opacity: 1;
-    }
+    .overlay.open{ pointer-events: auto; opacity: 1; }
     .menu-box{
-      position: absolute;
-      right: 16px;
-      top: 70px; /* below header */
-      width: min(92vw, 520px);
-      max-height: min(80vh, 720px);
-      overflow: auto;
+      position: absolute; right: 16px; top: 70px;
+      width: min(92vw, 520px); max-height: min(80vh, 720px); overflow: auto;
       background: linear-gradient(180deg, color-mix(in oklab, var(--card), #000 6%), var(--card));
       border:1px solid color-mix(in oklab, var(--muted), transparent 82%);
-      border-radius: 14px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,.35);
       padding: 12px 16px;
     }
-    /* details/summary groups inside the floating menu */
-    details.group{
-      border-bottom:1px solid color-mix(in oklab, var(--muted), transparent 85%);
-      padding: 4px 0;
-    }
+    details.group{ border-bottom:1px solid color-mix(in oklab, var(--muted), transparent 85%); padding: 4px 0; }
     details.group:last-of-type{ border-bottom:0 }
     details.group > summary{
-      list-style: none;
-      cursor: pointer;
-      padding: 12px 4px;
-      font-weight: 700;
-      display:flex; align-items:center; justify-content:space-between;
-      color: var(--text);
-      border-radius:10px;
+      list-style: none; cursor: pointer; padding: 12px 4px; font-weight: 700;
+      display:flex; align-items:center; justify-content:space-between; color: var(--text); border-radius:10px;
     }
     details.group > summary::-webkit-details-marker{ display:none }
     .chev{ transition: transform .2s ease; }
     details[open] .chev{ transform: rotate(180deg); }
-
     .submenu{ list-style:none; margin: 0 0 12px 0; padding: 0 6px 8px 6px; }
-    .submenu li{ margin:.3rem 0 }
-    .submenu a{ color: var(--muted) }
-    .submenu a:hover{ color:var(--accent) }
+    .submenu li{ margin:.3rem 0 } .submenu a{ color: var(--muted) } .submenu a:hover{ color:var(--accent) }
 
     .hero{ padding: clamp(32px, 6vw, 72px) 0 24px; }
     .hero .title{ font-size: clamp(28px, 2.8vw + 12px, 44px); margin: 0 0 .25rem; letter-spacing: -.5px }
@@ -130,32 +104,40 @@
       box-shadow: var(--shadow);
     }
     main.content{ padding: 20px 0 60px }
-    .md{
-      padding: clamp(18px, 2.5vw, 32px);
-      overflow:hidden;
-    }
-    .md h1,.md h2,.md h3{ line-height:1.25 }
+    .md{ padding: clamp(18px, 2.5vw, 32px); overflow:hidden; }
+    .md h1,.md h2,.md h3{ line-height:1.25; position:relative; }
     .md h2{ font-size: clamp(1.3rem, 1.8vw, 1.6rem); margin-top:1.4em; color:var(--accent) }
     .md h3{ font-size: clamp(1.05rem, 1.3vw, 1.2rem); margin-top:1.2em }
     .md p{ margin: .75rem 0 }
     .md img{ max-width:100%; height:auto; border-radius:12px }
     .md table{ width:100%; border-collapse:collapse; overflow:auto; display:block }
     .md table th, .md table td{ padding:.6rem .7rem; border-bottom:1px solid color-mix(in oklab, var(--muted), transparent 82%) }
-    .md ul, .md ol{ padding-left: 1.15rem }
-    .md hr{ border:0; height:1px; background: color-mix(in oklab, var(--muted), transparent 80%); margin: 1.5rem 0 }
+    .md ul, .md ol{ padding-left: 1.15rem } .md hr{ border:0; height:1px; background: color-mix(in oklab, var(--muted), transparent 80%); margin: 1.5rem 0 }
 
-    footer.site{
-      border-top:1px solid color-mix(in oklab, var(--muted), transparent 80%);
-      color:var(--muted);
-      padding: 28px 0;
-    }
+    footer.site{ border-top:1px solid color-mix(in oklab, var(--muted), transparent 80%); color:var(--muted); padding: 28px 0; }
 
-    /* Back to top */
-    .to-top{
-      position:fixed; right:20px; bottom:20px; z-index:20; opacity:0; pointer-events:none;
-      transition:.2s ease; transform: translateY(6px);
-    }
+    .to-top{ position:fixed; right:20px; bottom:20px; z-index:20; opacity:0; pointer-events:none; transition:.2s ease; transform: translateY(6px); }
     .to-top.show{ opacity:1; pointer-events:auto; transform:none }
+
+    .ai-highlight {
+      color: var(--accent-2);
+      font-weight: 600;
+      background: color-mix(in oklab, var(--accent), transparent 85%);
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .toast{
+      position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(8px);
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card), #000 8%), var(--card));
+      color: var(--text);
+      border:1px solid color-mix(in oklab, var(--muted), transparent 80%);
+      border-radius: 10px; padding: 10px 14px; box-shadow: var(--shadow);
+      opacity:0; pointer-events:none; transition: opacity .15s ease, transform .15s ease;
+      z-index: 50;
+    }
+    .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
   </style>
 </head>
 <body>
@@ -173,7 +155,6 @@
     </div>
   </header>
 
-  <!-- Floating overlay with menu box -->
   <div class="overlay" id="menuOverlay" aria-hidden="true">
     <div class="menu-box" role="dialog" aria-modal="true" aria-label="Site menu">
       <details class="group" id="group-contents" open>
@@ -213,16 +194,15 @@
     </div>
   </footer>
 
-  <!-- Markdown parser -->
+  <div class="toast" id="toast" role="status" aria-live="polite">Link copied</div>
+
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     const $ = (s, r=document) => r.querySelector(s);
     const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-    // Year
     $("#year").textContent = new Date().getFullYear();
 
-    // Toggle overlay open/close
     const toggle = $("#menuToggle");
     const overlay = $("#menuOverlay");
     function openMenu(){
@@ -230,34 +210,17 @@
       overlay.setAttribute('aria-hidden','false');
       toggle.setAttribute('aria-expanded','true');
       buildTOC();
-      // focus first summary for accessibility
-      $("#group-contents summary").focus({preventScroll:true});
     }
     function closeMenu(){
       overlay.classList.remove('open');
       overlay.setAttribute('aria-hidden','true');
       toggle.setAttribute('aria-expanded','false');
     }
-    toggle.addEventListener('click', (e)=>{
-      const isOpen = overlay.classList.contains('open');
-      if(isOpen) closeMenu(); else openMenu();
-    });
-    // click outside to close
-    overlay.addEventListener('click', (e)=>{
-      const box = $(".menu-box");
-      if(!box.contains(e.target)) closeMenu();
-    });
-    // ESC to close
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape') closeMenu();
-    });
-    // close when clicking any link in the overlay
-    overlay.addEventListener('click', (e)=>{
-      const a = e.target.closest('a');
-      if(a) closeMenu();
-    });
+    toggle.addEventListener('click', ()=> overlay.classList.contains('open') ? closeMenu() : openMenu());
+    overlay.addEventListener('click', (e)=>{ const box = $(".menu-box"); if(box && !box.contains(e.target)) closeMenu(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+    overlay.addEventListener('click', (e)=>{ const a = e.target.closest('a'); if(a) closeMenu(); });
 
-    // Build raw URLs for user pages to bypass Jekyll transforms
     function guessRawUrls(filename){
       const host = location.hostname;
       const owner = host.split('.')[0];
@@ -265,7 +228,6 @@
       const branches = ['main','master','gh-pages'];
       return branches.map(b => `https://raw.githubusercontent.com/${owner}/${repo}/${b}/${filename}`);
     }
-
     async function fetchText(url){
       const res = await fetch(url, { cache: 'no-cache' });
       if(!res.ok) throw new Error(res.status + ' ' + res.statusText);
@@ -275,7 +237,6 @@
     async function renderMarkdown(){
       const root = $("#md-root");
       const candidates = ['index.md', ...guessRawUrls('index.md')];
-
       for(const url of candidates){
         try{
           const text = await fetchText(url);
@@ -283,10 +244,10 @@
           root.innerHTML = marked.parse(text);
           enhanceHeadings();
           buildTOC();
+          handleInitialHash();
           return;
         }catch(e){}
       }
-
       root.innerHTML = `<p role="alert">
         Could not load <code>index.md</code>.<br/>
         Options:<br/>
@@ -296,19 +257,38 @@
     }
 
     function enhanceHeadings(){
-      $$('.md h2, .md h3', $("#md-root").parentNode).forEach(h => {
+      // add ids and make headings copy their link on click/long-press
+      const headings = $$('.md h2, .md h3', $("#md-root").parentNode);
+      headings.forEach(h => {
         if(!h.id){
-          h.id = h.textContent
-            .toLowerCase()
-            .replace(/[^\w]+/g,'-')
-            .replace(/^-+|-+$/g,'');
+          h.id = h.textContent.toLowerCase().replace(/[^\w]+/g,'-').replace(/^-+|-+$/g,'');
         }
+        // click to copy
+        h.style.cursor = 'pointer';
+        h.addEventListener('click', () => {
+          const url = location.origin + location.pathname + '#' + h.id;
+          copyText(url);
+          haptic();
+          showToast('Link copied');
+        });
+        // long-press to copy (mobile)
+        let pressTimer;
+        h.addEventListener('touchstart', () => {
+          pressTimer = setTimeout(() => {
+            const url = location.origin + location.pathname + '#' + h.id;
+            copyText(url);
+            haptic();
+            showToast('Link copied');
+          }, 500);
+        });
+        ['touchend','touchcancel','touchmove'].forEach(evt =>
+          h.addEventListener(evt, () => clearTimeout(pressTimer))
+        );
       });
     }
 
     function buildTOC(){
-      const toc = $("#toc");
-      if(!toc) return;
+      const toc = $("#toc"); if(!toc) return;
       const headings = $$('.md h2, .md h3', $("#md-root").parentNode);
       toc.innerHTML = '';
       headings.forEach(h => {
@@ -318,20 +298,64 @@
         const a = document.createElement('a');
         a.href = '#' + h.id;
         a.textContent = h.textContent.trim();
+        a.addEventListener('click', (e)=>{
+          e.preventDefault();
+          offsetScrollTo(h.id);
+          closeMenu();
+        });
         li.appendChild(a);
         toc.appendChild(li);
       });
     }
 
-    // Back to top button
+    function offsetScrollTo(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      const header = document.querySelector('header.site');
+      const headerH = header ? header.getBoundingClientRect().height : 0;
+      const y = window.pageYOffset + el.getBoundingClientRect().top - headerH - 8;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      history.pushState(null, '', '#' + id);
+    }
+
+    function handleInitialHash(){
+      if(location.hash){
+        const id = decodeURIComponent(location.hash.substring(1));
+        setTimeout(()=> offsetScrollTo(id), 0);
+      }
+    }
+
+    function copyText(txt){
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = txt; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch(_) {}
+        document.body.removeChild(ta);
+      }
+    }
+    function haptic(){
+      if (navigator.vibrate) navigator.vibrate(100);
+    }
+
+    const toast = $("#toast");
+    let toastTimer = null;
+    function showToast(msg){
+      toast.textContent = msg || 'Copied';
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=> toast.classList.remove('show'), 1500);
+    }
+
     const toTop = document.createElement('a');
-    toTop.className = 'btn to-top';
-    toTop.href = '#';
-    toTop.textContent = 'Top';
+    toTop.className = 'btn to-top'; toTop.href = '#'; toTop.textContent = 'Top';
     document.body.appendChild(toTop);
-    window.addEventListener('scroll', ()=>{
-      if(window.scrollY > 400){ toTop.classList.add('show'); }
-      else { toTop.classList.remove('show'); }
+    window.addEventListener('scroll', ()=>{ if(window.scrollY > 400){ toTop.classList.add('show'); } else { toTop.classList.remove('show'); } });
+    toTop.addEventListener('click', (e)=>{
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      history.pushState(null, '', '#');
     });
 
     renderMarkdown();
