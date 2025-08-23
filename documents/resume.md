@@ -14,7 +14,7 @@ Developer advocate and DevOps evangelist with extensive experience helping devel
 - Content Development (training, blogs, webinars, documentation)
 - Community Engagement (GitHub, open source, coding events)
 - DevOps & Agile Methodologies
-- GitHub Enterprise & Git
+- GitHub & Git
 - Cloud & CI/CD Tooling (TeamForge, TFS, Jira, etc.)
 
 ## Professional Experience
@@ -54,7 +54,7 @@ Developer advocate and DevOps evangelist with extensive experience helping devel
 
 #### Source Code Management IT Developer/Engineer, April 2014 – April 2017
 
-- Evangelized social coding practices and GitHub Enterprise adoption across global teams.
+- Evangelized social coding practices and GitHub adoption across global teams.
 - Served as Social Coding Evangelist and mentor; organized and supported HPE CodeWars developer competition.
 - Designed and maintained CI/CD pipelines, GitHub repositories, and enterprise-scale DevOps workflows.
 - Delivered technical training and documentation for GitHub, Agile tools, and DevOps practices.

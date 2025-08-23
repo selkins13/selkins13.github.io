@@ -36,7 +36,7 @@ Internally, I’ve contributed **onboarding** materials for Engagement Managers 
 
 ## ✨ My Previous Work
 
-Before joining GitHub, I spent over five years at Hewlett Packard Enterprise, where I helped global teams modernize their development practices. I engineered and integrated source code management solutions (GitHub Enterprise, TeamForge, TFS) and built CI/CD pipelines that powered enterprise applications. Alongside the tech, I championed DevOps and social coding, teaching developers how automation and ChatOps reduce errors and accelerate delivery.
+Before joining GitHub, I spent over five years at Hewlett Packard Enterprise, where I helped global teams modernize their development practices. I engineered and integrated source code management solutions (GitHub, TeamForge, TFS) and built CI/CD pipelines that powered enterprise applications. Alongside the tech, I championed DevOps and social coding, teaching developers how automation and ChatOps reduce errors and accelerate delivery.
 
 I also contributed to the developer community by organizing HPE CodeWars, a coding competition inspiring high school students to pursue technology careers.
 
