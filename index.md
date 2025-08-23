@@ -64,6 +64,6 @@ Beyond the technical side, I love **mentoring new colleagues**, building **onboa
 
 Looking for more details about my background?  
 
-<a class="btn" href="./assets/SarahElkins_Resume.pdf" target="_blank">
+<a class="btn" href="./assets/SarahElkinsResume.pdf" target="_blank">
   📥 Download My Resume
 </a>
