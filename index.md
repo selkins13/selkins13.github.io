@@ -56,3 +56,11 @@ Before I began my career in Tech, I worked as a 911 Telecommunications Operator 
 Looking ahead, I’m excited to continue expanding my impact as a **Developer Advocate**—creating content that resonates with developers, 
 building stronger communities, and amplifying developer feedback to shape better products. My goal is to use my blend of technical expertise, 
 storytelling skills, and advocacy experience to inspire and enable developers worldwide.
+
+## 📄 Resume  
+
+Looking for more details about my background?  
+
+<a class="btn" href="./assets/SarahElkins_Resume.pdf" target="_blank">
+  📥 Download My Resume
+</a>
