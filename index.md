@@ -57,6 +57,8 @@ Looking ahead, I’m excited to continue expanding my impact as a **Developer Ad
 building stronger communities, and amplifying developer feedback to shape better products. My goal is to use my blend of technical expertise, 
 storytelling skills, and advocacy experience to inspire and enable developers worldwide.
 
+---
+
 ## 📄 Resume  
 
 Looking for more details about my background?  
