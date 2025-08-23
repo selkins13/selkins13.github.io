@@ -78,20 +78,28 @@
       background: color-mix(in oklab, var(--bg), transparent 6%);
     }
     .menu-panel.open{ max-height: 80vh; }
-    .menu-inner{ display:grid; gap:16px; grid-template-columns: 1fr; padding:16px 0; }
-    @media (min-width: 880px){
-      .menu-inner{ grid-template-columns: 1fr 320px; }
+    .menu-inner{ padding:8px 0 16px; }
+    /* details/summary styles */
+    details.group{
+      border-bottom:1px solid color-mix(in oklab, var(--muted), transparent 85%);
+      padding: 4px 0;
     }
-    .card{
-      padding: clamp(14px, 2vw, 20px);
-      border-radius:12px;
-      border:1px solid color-mix(in oklab, var(--muted), transparent 82%);
-      background: linear-gradient(180deg, color-mix(in oklab, var(--card), #000 4%), var(--card));
+    details.group > summary{
+      list-style: none;
+      cursor: pointer;
+      padding: 12px 0;
+      font-weight: 700;
+      display:flex; align-items:center; justify-content:space-between;
+      color: var(--text);
     }
-    .toc{ list-style:none; margin:0; padding:0 }
-    .toc li{ margin:.25rem 0 }
-    .toc a{ color:var(--muted) }
-    .toc a.active{ color:var(--accent); font-weight:600 }
+    details.group > summary::-webkit-details-marker{ display:none }
+    .chev{ transition: transform .2s ease; }
+    details[open] .chev{ transform: rotate(180deg); }
+    /* submenu lists */
+    .submenu{ list-style:none; margin: 0 0 12px 0; padding: 0 0 8px 0; }
+    .submenu li{ margin:.25rem 0 }
+    .submenu a{ color: var(--muted) }
+    .submenu a:hover{ color:var(--accent) }
 
     .hero{ padding: clamp(32px, 6vw, 72px) 0 24px; }
     .hero .title{ font-size: clamp(28px, 2.8vw + 12px, 44px); margin: 0 0 .25rem; letter-spacing: -.5px }
@@ -147,25 +155,18 @@
     </div>
     <div class="menu-panel" id="menuPanel">
       <div class="container menu-inner">
-        <div class="card">
-          <h3 style="margin-top:0">Contents</h3>
-          <ul class="toc" id="toc"></ul>
-        </div>
-        <div class="card">
-          <h3 style="margin-top:0">Contact</h3>
-          <a class="btn" href="mailto:selkins13@icloud.com" 
-             style="margin-top:.6rem; display:block; text-align:center;">
-            ✉️ Email Me
-          </a>
-          <a class="btn" href="tel:+12702938340" 
-             style="margin-top:.6rem; display:block; text-align:center; background:linear-gradient(180deg,#34c759,#248a3d);">
-            📞 Call Me
-          </a>
-          <a class="btn" href="https://linkedin.com/in/sarah-elkins-93719742" target="_blank" 
-             style="margin-top:.6rem; display:block; text-align:center; background:linear-gradient(180deg,#0a66c2,#004182);">
-            🔗 LinkedIn
-          </a>
-        </div>
+        <details class="group" id="group-contents">
+          <summary>Contents <span class="chev">▾</span></summary>
+          <ul class="submenu" id="toc"></ul>
+        </details>
+        <details class="group" id="group-contact">
+          <summary>Contact <span class="chev">▾</span></summary>
+          <ul class="submenu">
+            <li><a href="mailto:selkins13@icloud.com">✉️ Email Me</a></li>
+            <li><a href="tel:+12702938340">📞 Call Me</a></li>
+            <li><a href="https://linkedin.com/in/sarah-elkins-93719742" target="_blank">🔗 LinkedIn</a></li>
+          </ul>
+        </details>
       </div>
     </div>
   </header>
@@ -209,13 +210,15 @@
       toggle.setAttribute('aria-expanded', String(open));
       if(open){
         buildTOC();
-        // close panel when clicking TOC link
-        $("#toc").addEventListener('click', e => {
-          if(e.target.tagName === 'A'){
-            panel.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
-          }
-        });
+      }
+    });
+
+    // Auto-close panel when clicking any link in panel
+    $("#menuPanel").addEventListener('click', (e) => {
+      const t = e.target.closest('a');
+      if(t){
+        panel.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
       }
     });
 
