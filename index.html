@@ -42,7 +42,7 @@
     a:hover{ text-decoration:underline }
     .container{ width:100%; max-width: var(--max); margin: 0 auto; padding: 0 20px }
     header.site{
-      position: sticky; top:0; z-index: 20; backdrop-filter: blur(6px);
+      position: sticky; top:0; z-index: 30; backdrop-filter: blur(6px);
       background: color-mix(in oklab, var(--bg), transparent 15%);
       border-bottom:1px solid color-mix(in oklab, var(--muted), transparent 80%);
     }
@@ -60,7 +60,7 @@
     }
     .btn:hover{ filter:brightness(.98); text-decoration:none }
 
-    /* Header menu toggle */
+    /* Header Menu Button */
     .menu-toggle{
       border:1px solid color-mix(in oklab, var(--muted), transparent 60%);
       background: linear-gradient(180deg, color-mix(in oklab, var(--card), #000 4%), var(--card));
@@ -70,34 +70,52 @@
       cursor:pointer;
       font-weight:600;
     }
-    .menu-panel{
-      overflow:hidden;
-      max-height:0;
-      transition:max-height .25s ease;
-      border-top:1px solid color-mix(in oklab, var(--muted), transparent 80%);
-      background: color-mix(in oklab, var(--bg), transparent 6%);
+
+    /* OVERLAY DROPDOWN (floating box) */
+    .overlay{
+      position: fixed; inset: 0; z-index: 25;
+      background: rgba(0,0,0,.0); /* transparent – we’ll close on outside click anyway */
+      pointer-events: none;        /* disabled until open */
+      opacity: 0; transition: opacity .15s ease;
     }
-    .menu-panel.open{ max-height: 80vh; }
-    .menu-inner{ padding:8px 0 16px; }
-    /* details/summary styles */
+    .overlay.open{
+      pointer-events: auto;
+      opacity: 1;
+    }
+    .menu-box{
+      position: absolute;
+      right: 16px;
+      top: 70px; /* below header */
+      width: min(92vw, 520px);
+      max-height: min(80vh, 720px);
+      overflow: auto;
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card), #000 6%), var(--card));
+      border:1px solid color-mix(in oklab, var(--muted), transparent 82%);
+      border-radius: 14px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      padding: 12px 16px;
+    }
+    /* details/summary groups inside the floating menu */
     details.group{
       border-bottom:1px solid color-mix(in oklab, var(--muted), transparent 85%);
       padding: 4px 0;
     }
+    details.group:last-of-type{ border-bottom:0 }
     details.group > summary{
       list-style: none;
       cursor: pointer;
-      padding: 12px 0;
+      padding: 12px 4px;
       font-weight: 700;
       display:flex; align-items:center; justify-content:space-between;
       color: var(--text);
+      border-radius:10px;
     }
     details.group > summary::-webkit-details-marker{ display:none }
     .chev{ transition: transform .2s ease; }
     details[open] .chev{ transform: rotate(180deg); }
-    /* submenu lists */
-    .submenu{ list-style:none; margin: 0 0 12px 0; padding: 0 0 8px 0; }
-    .submenu li{ margin:.25rem 0 }
+
+    .submenu{ list-style:none; margin: 0 0 12px 0; padding: 0 6px 8px 6px; }
+    .submenu li{ margin:.3rem 0 }
     .submenu a{ color: var(--muted) }
     .submenu a:hover{ color:var(--accent) }
 
@@ -150,26 +168,28 @@
       <div class="links">
         <a href="mailto:selkins13@icloud.com" class="muted">Email</a>
         <a href="https://linkedin.com/in/sarah-elkins-93719742" class="muted" target="_blank">LinkedIn</a>
-        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menuPanel">Menu</button>
-      </div>
-    </div>
-    <div class="menu-panel" id="menuPanel">
-      <div class="container menu-inner">
-        <details class="group" id="group-contents">
-          <summary>Contents <span class="chev">▾</span></summary>
-          <ul class="submenu" id="toc"></ul>
-        </details>
-        <details class="group" id="group-contact">
-          <summary>Contact <span class="chev">▾</span></summary>
-          <ul class="submenu">
-            <li><a href="mailto:selkins13@icloud.com">✉️ Email Me</a></li>
-            <li><a href="tel:+12702938340">📞 Call Me</a></li>
-            <li><a href="https://linkedin.com/in/sarah-elkins-93719742" target="_blank">🔗 LinkedIn</a></li>
-          </ul>
-        </details>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menuOverlay">Menu</button>
       </div>
     </div>
   </header>
+
+  <!-- Floating overlay with menu box -->
+  <div class="overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-box" role="dialog" aria-modal="true" aria-label="Site menu">
+      <details class="group" id="group-contents" open>
+        <summary>Contents <span class="chev">▾</span></summary>
+        <ul class="submenu" id="toc"></ul>
+      </details>
+      <details class="group" id="group-contact">
+        <summary>Contact <span class="chev">▾</span></summary>
+        <ul class="submenu">
+          <li><a href="mailto:selkins13@icloud.com">✉️ Email Me</a></li>
+          <li><a href="tel:+12702938340">📞 Call Me</a></li>
+          <li><a href="https://linkedin.com/in/sarah-elkins-93719742" target="_blank">🔗 LinkedIn</a></li>
+        </ul>
+      </details>
+    </div>
+  </div>
 
   <section class="hero">
     <div class="container">
@@ -202,24 +222,39 @@
     // Year
     $("#year").textContent = new Date().getFullYear();
 
-    // Header menu toggle
+    // Toggle overlay open/close
     const toggle = $("#menuToggle");
-    const panel = $("#menuPanel");
-    toggle.addEventListener('click', () => {
-      const open = panel.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-      if(open){
-        buildTOC();
-      }
+    const overlay = $("#menuOverlay");
+    function openMenu(){
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden','false');
+      toggle.setAttribute('aria-expanded','true');
+      buildTOC();
+      // focus first summary for accessibility
+      $("#group-contents summary").focus({preventScroll:true});
+    }
+    function closeMenu(){
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden','true');
+      toggle.setAttribute('aria-expanded','false');
+    }
+    toggle.addEventListener('click', (e)=>{
+      const isOpen = overlay.classList.contains('open');
+      if(isOpen) closeMenu(); else openMenu();
     });
-
-    // Auto-close panel when clicking any link in panel
-    $("#menuPanel").addEventListener('click', (e) => {
-      const t = e.target.closest('a');
-      if(t){
-        panel.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
+    // click outside to close
+    overlay.addEventListener('click', (e)=>{
+      const box = $(".menu-box");
+      if(!box.contains(e.target)) closeMenu();
+    });
+    // ESC to close
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeMenu();
+    });
+    // close when clicking any link in the overlay
+    overlay.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a) closeMenu();
     });
 
     // Build raw URLs for user pages to bypass Jekyll transforms
