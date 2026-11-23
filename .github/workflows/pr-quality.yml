@@ -98,4 +98,4 @@ jobs:
           online-audits: false
           persona: pedantic
           strict-collection: true
-          version: 1.33.1
+          version: 1.33.0
