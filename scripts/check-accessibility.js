@@ -44,6 +44,8 @@ expect(/class="hero-visual"\s+role="img"\s+aria-label=/i.test(html), "The hero i
 expect(/class="trend-chart"[^>]+role="img"[^>]+aria-label=/i.test(html), "The trend chart must expose a text alternative.");
 expect(/class="pipeline-chart"[^>]+role="img"[^>]+aria-label=/i.test(html), "The lifecycle chart must expose a text alternative.");
 expect(/class="capacity-legend"\s+role="group"\s+aria-label=/i.test(html), "The capacity legend must use a supported named role.");
+expect(matches(html, /href="\?demo=(?:engagement|capacity|playbook)#[^"]+"/gi).length === 6, "Each case study must have clear card and in-context focused-demo links.");
+expect(matches(html, /Open interactive demo/gi).length === 3, "Each selected-work card must include an explicit demo CTA.");
 
 const controlCount = matches(html, /<(?:input|select)\b/gi).length;
 const labelCount = matches(html, /<label\b/gi).length;
@@ -59,6 +61,7 @@ expect(/trend-chart"\)\.setAttribute\("aria-label"/.test(js), "Trend chart data 
 expect(/pipeline-chart"\)\.setAttribute\("aria-label"/.test(js), "Lifecycle chart data must update its accessible description.");
 expect(/aria-pressed="\$\{person\.name === selectedPerson\}"/.test(js), "Selected resources must expose their pressed state.");
 expect(/aria-label="\$\{weekLabels\[index\]\}/.test(js), "Weekly utilization values must include their date and measure.");
+expect(/function initFocusedDemo\(\)/.test(js) && /demo-explore-title/.test(js), "Focused demos must have a direct-link exploration mode with a page heading.");
 
 if (failures.length) {
   console.error(`Accessibility regression check failed (${failures.length}):`);

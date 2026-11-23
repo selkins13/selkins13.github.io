@@ -60,6 +60,48 @@ const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[char]);
 
+const demoConfigs = {
+  engagement: {
+    id: "engagement-demo",
+    title: "Engagement lifecycle intelligence",
+    lede: "Explore how filters, portfolio signals, lifecycle stages, and aging views work together to turn reporting into a clear next action.",
+    tasks: ["Filter by region or owner.", "Compare starts and completions.", "Expand the attention list to inspect risk signals."]
+  },
+  capacity: {
+    id: "capacity-demo",
+    title: "Resource capacity & utilization",
+    lede: "Explore a planning view that balances portfolio-level staffing signals with the context behind each person’s assignments and availability.",
+    tasks: ["Switch between utilization and available capacity.", "Filter by discipline.", "Select a team member to inspect assignments and planning notes."]
+  },
+  playbook: {
+    id: "playbook-demo",
+    title: "Interactive onboarding playbook",
+    lede: "Explore a role-aware learning journey that combines first-month guidance with a searchable, reusable process library.",
+    tasks: ["Change the selected role.", "Search for a process or phase.", "Open a guide and review its reusable steps."]
+  }
+};
+
+function initFocusedDemo() {
+  const key = new URLSearchParams(window.location.search).get("demo");
+  const config = demoConfigs[key];
+  if (!config) return;
+  const article = document.getElementById(config.id);
+  if (!article) return;
+
+  document.body.classList.add("demo-explore");
+  article.classList.add("active-demo");
+  document.title = `${config.title} | Sarah Elkins`;
+  const intro = document.createElement("section");
+  intro.className = "demo-explore-intro";
+  intro.setAttribute("aria-labelledby", "demo-explore-title");
+  intro.innerHTML = `<div class="shell"><a class="demo-back-link" href="${window.location.pathname}#work"><span aria-hidden="true">←</span> Back to all case studies</a><div class="demo-explore-grid"><div><p class="eyebrow">Interactive portfolio demo</p><h1 id="demo-explore-title">${escapeHtml(config.title)}</h1><p class="explore-lede">${escapeHtml(config.lede)}</p></div><aside class="demo-try-panel" aria-label="Suggested demo tasks"><strong>Try these controls</strong><ul>${config.tasks.map((task) => `<li>${escapeHtml(task)}</li>`).join("")}</ul></aside></div></div>`;
+  article.before(intro);
+
+  $$(".primary-nav a[href^='#'], .footer-links a[href^='#']").forEach((link) => {
+    link.href = `${window.location.pathname}${link.getAttribute("href")}`;
+  });
+}
+
 function initNavigation() {
   const toggle = $(".nav-toggle");
   const nav = $("#primary-nav");
@@ -202,6 +244,7 @@ function initPlaybook() {
 
 document.addEventListener("DOMContentLoaded", () => {
   $("#year").textContent = new Date().getFullYear();
+  initFocusedDemo();
   initNavigation();
   initEngagementDashboard();
   initCapacityPlanner();
