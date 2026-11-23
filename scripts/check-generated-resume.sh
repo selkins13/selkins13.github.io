@@ -6,6 +6,7 @@ TEMP="$(mktemp -d)"
 trap 'rm -rf "$TEMP"' EXIT
 
 OUTPUT="$TEMP/generated.pdf" "$ROOT/scripts/generate-resume-pdf.sh"
+node "$ROOT/scripts/check-resume-pdf.js" "$ROOT/assets/SarahElkinsResume.pdf"
 
 pdftotext "$ROOT/assets/SarahElkinsResume.pdf" "$TEMP/committed-pdf.txt"
 pdftotext "$TEMP/generated.pdf" "$TEMP/generated-pdf.txt"
