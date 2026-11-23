@@ -281,8 +281,22 @@ async function main() {
       console.log(`Browser accessibility audit passed for ${profiles.length} desktop/mobile light/dark scenarios.`);
     }
   } finally {
-    chromeProcess.kill("SIGTERM");
-    fs.rmSync(userDataDirectory, { recursive: true, force: true });
+    if (chromeProcess.exitCode === null) {
+      chromeProcess.kill("SIGTERM");
+      await Promise.race([
+        new Promise((resolve) => chromeProcess.once("exit", resolve)),
+        wait(2000),
+      ]);
+    }
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      try {
+        fs.rmSync(userDataDirectory, { recursive: true, force: true });
+        break;
+      } catch (error) {
+        if (error.code !== "ENOTEMPTY" || attempt === 4) throw error;
+        await wait(100);
+      }
+    }
   }
 }
 
