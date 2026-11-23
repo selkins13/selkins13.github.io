@@ -138,7 +138,7 @@ function renderEngagementDashboard() {
   $("#engagement-kpis").innerHTML = kpis.map(([label, value, note]) => `<div class="kpi-card"><span>${label}</span><strong>${value}</strong><small>${note}</small></div>`).join("");
 
   const maxTrend = Math.max(...trendData.flatMap((item) => [item.started, item.completed]));
-  $("#trend-chart").setAttribute("aria-label", `Monthly engagement momentum: ${trendData.map((item) => `${item.month}, ${item.started} started and ${item.completed} completed`).join("; ")}`);
+  $("#trend-chart").setAttribute("aria-label", `All regions and owners monthly engagement momentum: ${trendData.map((item) => `${item.month}, ${item.started} started and ${item.completed} completed`).join("; ")}`);
   $("#trend-chart").innerHTML = trendData.map((item) => `<div class="month-bars" title="${item.month}: ${item.started} started, ${item.completed} completed"><i style="height:${(item.started / maxTrend) * 92}%"></i><i style="height:${(item.completed / maxTrend) * 92}%"></i><span>${item.month}</span></div>`).join("");
 
   const stages = ["Intake", "Discovery", "Planning", "Delivery", "Complete"];
@@ -181,8 +181,17 @@ function renderCapacityPlanner() {
   ].map(([label, value, color]) => `<div class="summary-card"><div><span>${label}</span><strong>${value}</strong></div><i style="background:${color}"></i></div>`).join("");
 
   const weekLabels = ["November 23", "November 30", "December 7", "December 14"];
-  $("#resource-list").innerHTML = filtered.length ? filtered.map((person) => `<button class="resource-row ${person.name === selectedPerson ? "active" : ""}" type="button" data-person="${escapeHtml(person.name)}" aria-pressed="${person.name === selectedPerson}"><span class="person"><span class="avatar" style="background:${person.color}">${person.initials}</span><span><strong>${escapeHtml(person.name)}</strong><span>${person.discipline}</span></span></span><span class="week-blocks">${person.weeks.map((value, index) => { const display = view === "capacity" ? Math.max(0, 100 - value) : value; const measure = view === "capacity" ? "available capacity" : "utilization"; return `<span class="week-block week-block--${utilizationState(value)}" title="${measure}: ${display}%" aria-label="${weekLabels[index]}: ${display}% ${measure}">${display}%</span>`; }).join("")}</span></button>`).join("") : `<div class="empty-state">No team members match this discipline.</div>`;
-  $$(".resource-row").forEach((button) => button.addEventListener("click", () => { selectedPerson = button.dataset.person; renderCapacityPlanner(); }));
+  const shortWeekLabels = ["Nov 23", "Nov 30", "Dec 7", "Dec 14"];
+  $("#resource-list").innerHTML = filtered.length ? filtered.map((person) => `<button class="resource-row ${person.name === selectedPerson ? "active" : ""}" type="button" data-person="${escapeHtml(person.name)}" aria-pressed="${person.name === selectedPerson}"><span class="person"><span class="avatar" style="background:${person.color}">${person.initials}</span><span><strong>${escapeHtml(person.name)}</strong><span>${person.discipline}</span></span></span><span class="week-blocks">${person.weeks.map((value, index) => { const display = view === "capacity" ? Math.max(0, 100 - value) : value; const measure = view === "capacity" ? "available capacity" : "utilization"; return `<span class="week-block week-block--${utilizationState(value)}" title="${weekLabels[index]}: ${measure} ${display}%" aria-label="${weekLabels[index]}: ${display}% ${measure}"><span class="week-date" aria-hidden="true">${shortWeekLabels[index]}</span><span>${display}%</span></span>`; }).join("")}</span></button>`).join("") : `<div class="empty-state">No team members match this discipline.</div>`;
+  $$(".resource-row").forEach((button) => button.addEventListener("click", () => {
+    selectedPerson = button.dataset.person;
+    $$(".resource-row").forEach((row) => {
+      const active = row.dataset.person === selectedPerson;
+      row.classList.toggle("active", active);
+      row.setAttribute("aria-pressed", String(active));
+    });
+    renderPersonDetail(filtered.find((person) => person.name === selectedPerson));
+  }));
   renderPersonDetail(filtered.find((person) => person.name === selectedPerson));
 }
 

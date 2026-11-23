@@ -269,6 +269,38 @@ async function main() {
       if (result.reducedMotion !== profile.reducedMotion) failures.push(`${profile.name}: reduced-motion emulation failed`);
       result.failures.forEach((failure) => failures.push(`${profile.name}: ${failure}`));
 
+      if (profile.path.includes("demo=capacity")) {
+        const capacityBehavior = await client.send("Runtime.evaluate", {
+          expression: `(() => {
+            const rows = [...document.querySelectorAll(".resource-row")];
+            const target = rows[1];
+            if (!target) return { error: "capacity rows did not render" };
+            target.focus();
+            target.click();
+            const dates = [...target.querySelectorAll(".week-date")];
+            const rowBounds = target.getBoundingClientRect();
+            const blocksFit = [...target.querySelectorAll(".week-block")].every((block) => {
+              const bounds = block.getBoundingClientRect();
+              return bounds.left >= rowBounds.left && bounds.right <= rowBounds.right;
+            });
+            return {
+              focusPreserved: document.activeElement === target,
+              selected: target.getAttribute("aria-pressed") === "true",
+              detailMatches: document.querySelector("#resource-detail h4")?.textContent === target.dataset.person,
+              visibleDates: dates.length === 4 && dates.every((date) => getComputedStyle(date).display !== "none"),
+              blocksFit,
+            };
+          })()`,
+          returnByValue: true,
+        });
+        const behavior = capacityBehavior.result.value;
+        if (behavior.error) failures.push(`${profile.name}: ${behavior.error}`);
+        if (!behavior.focusPreserved) failures.push(`${profile.name}: selecting a resource row loses keyboard focus`);
+        if (!behavior.selected || !behavior.detailMatches) failures.push(`${profile.name}: resource selection state did not update`);
+        if (profile.width < 600 && !behavior.visibleDates) failures.push(`${profile.name}: capacity blocks do not show mobile week dates`);
+        if (!behavior.blocksFit) failures.push(`${profile.name}: capacity blocks overflow their resource row`);
+      }
+
       client.close();
       await fetch(`http://127.0.0.1:${port}/json/close/${target.id}`);
     }
