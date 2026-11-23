@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PORT="${PORT:-4174}"
 CHROME_BIN="${CHROME_BIN:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"
-OUTPUT="$ROOT/assets/SarahElkinsResume.pdf"
+OUTPUT="${OUTPUT:-$ROOT/assets/SarahElkinsResume.pdf}"
 
 if [[ ! -x "$CHROME_BIN" ]]; then
   echo "Chrome executable not found: $CHROME_BIN" >&2
