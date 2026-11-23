@@ -2,6 +2,7 @@
 
 const { execFileSync, spawn } = require("node:child_process");
 const fs = require("node:fs");
+const net = require("node:net");
 const os = require("node:os");
 const path = require("node:path");
 
@@ -28,9 +29,25 @@ function wait(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
-async function waitForFile(filePath, processHandle) {
+function reservePort() {
+  return new Promise((resolve, reject) => {
+    const server = net.createServer();
+    server.on("error", reject);
+    server.listen(0, "127.0.0.1", () => {
+      const { port } = server.address();
+      server.close(() => resolve(port));
+    });
+  });
+}
+
+async function waitForDevTools(port, processHandle) {
   for (let attempt = 0; attempt < 100; attempt += 1) {
-    if (fs.existsSync(filePath)) return;
+    try {
+      const response = await fetch(`http://127.0.0.1:${port}/json/version`);
+      if (response.ok) return;
+    } catch {
+      // Chrome has not opened its debugging endpoint yet.
+    }
     if (processHandle.exitCode !== null) throw new Error(`Chrome exited with code ${processHandle.exitCode}`);
     await wait(50);
   }
@@ -193,6 +210,7 @@ const profiles = [
 async function main() {
   const chrome = findChrome();
   const userDataDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "portfolio-chrome-"));
+  const port = await reservePort();
   const chromeProcess = spawn(
     chrome,
     [
@@ -200,7 +218,8 @@ async function main() {
       "--disable-gpu",
       "--no-sandbox",
       "--hide-scrollbars",
-      "--remote-debugging-port=0",
+      "--remote-debugging-address=127.0.0.1",
+      `--remote-debugging-port=${port}`,
       `--user-data-dir=${userDataDirectory}`,
       "about:blank",
     ],
@@ -208,9 +227,7 @@ async function main() {
   );
 
   try {
-    const activePortPath = path.join(userDataDirectory, "DevToolsActivePort");
-    await waitForFile(activePortPath, chromeProcess);
-    const [port] = fs.readFileSync(activePortPath, "utf8").split(/\r?\n/);
+    await waitForDevTools(port, chromeProcess);
     const failures = [];
 
     for (const profile of profiles) {
