@@ -17,6 +17,11 @@ function matches(source, pattern) {
   return [...source.matchAll(pattern)];
 }
 
+function pngDimensions(filePath) {
+  const image = fs.readFileSync(filePath);
+  return [image.readUInt32BE(16), image.readUInt32BE(20)];
+}
+
 expect(/<html\s+lang="en"/i.test(html), "Document must declare its language.");
 expect(/class="skip-link"\s+href="#main"/i.test(html), "A skip link must target the main content.");
 expect(/<main\s+id="main"/i.test(html), "The page must contain one addressable main landmark.");
@@ -66,6 +71,13 @@ expect(/aria-label="\$\{weekLabels\[index\]\}/.test(js), "Weekly utilization val
 expect(/function initFocusedDemo\(\)/.test(js) && /demo-explore-title/.test(js), "Focused demos must have a direct-link exploration mode with a page heading.");
 expect(/<main\s+id="resume-main"/i.test(resumeHtml), "Resume page must include a main landmark.");
 expect(matches(resumeHtml, /<h1\b/gi).length === 1, "Resume page must contain exactly one h1.");
+for (const page of [html, resumeHtml]) {
+  expect(/rel="icon"\s+href="\.\/assets\/favicon\.svg"\s+type="image\/svg\+xml"/i.test(page), "Each page must include the SVG favicon.");
+  expect(/rel="icon"\s+href="\.\/assets\/favicon-32\.png"\s+type="image\/png"\s+sizes="32x32"/i.test(page), "Each page must include the 32px favicon.");
+  expect(/rel="apple-touch-icon"\s+href="\.\/assets\/apple-touch-icon\.png"\s+sizes="180x180"/i.test(page), "Each page must include the Apple touch icon.");
+}
+expect(pngDimensions(path.join(root, "assets/favicon-32.png")).join("x") === "32x32", "The PNG favicon must be 32x32.");
+expect(pngDimensions(path.join(root, "assets/apple-touch-icon.png")).join("x") === "180x180", "The Apple touch icon must be 180x180.");
 expect(/href="\.\/assets\/SarahElkinsResume\.pdf"\s+download/i.test(resumeHtml), "Resume page must include a downloadable PDF link.");
 expect(!/Print or save as PDF/i.test(resumeHtml), "Resume page must not include a redundant print CTA.");
 expect(/@media\s+print/i.test(resumeCss), "Resume page must include print-specific styling.");

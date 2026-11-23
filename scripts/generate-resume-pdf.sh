@@ -30,4 +30,5 @@ done
   --print-to-pdf="$OUTPUT" \
   "http://127.0.0.1:$PORT/resume.html?format=pdf"
 
+node "$ROOT/scripts/check-resume-pdf.js" "$OUTPUT"
 echo "Generated $OUTPUT from resume.html"
