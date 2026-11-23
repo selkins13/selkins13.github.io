@@ -15,6 +15,7 @@
 .resume-sidebar section { padding-bottom: 32px; border-bottom: 1px solid var(--line); }
 .resume-sidebar h2 { margin-bottom: 5px; font-size: .95rem; letter-spacing: -.01em; }
 .resume-sidebar p { margin-bottom: 8px; color: var(--muted); font-size: .78rem; }
+.resume-sidebar .credential-link { color: var(--violet); font-size: .75rem; font-weight: 800; }
 .resume-section-label { margin-bottom: 12px; color: var(--violet); font-size: .67rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .resume-skill-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 0; padding: 0; list-style: none; }
 .resume-skill-list li { padding: 5px 8px; color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 7px; font-size: .68rem; font-weight: 700; }
@@ -60,6 +61,7 @@
   .resume-layout { width: 100%; padding: 20pt 0 0; grid-template-columns: 1.55in 1fr; gap: 26pt; }
   .resume-sidebar { position: static; gap: 20pt; }
   .resume-sidebar section { padding-bottom: 16pt; }
+  .resume-sidebar .credential-link { color: var(--ink); text-decoration: none; }
   .resume-content > section { margin-bottom: 24pt; }
   .resume-content h2 { margin-bottom: 10pt; font-size: 15pt; }
   .resume-content p, .resume-bullets li { line-height: 1.38; }

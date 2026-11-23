@@ -68,6 +68,8 @@ expect(/<main\s+id="resume-main"/i.test(resumeHtml), "Resume page must include a
 expect(matches(resumeHtml, /<h1\b/gi).length === 1, "Resume page must contain exactly one h1.");
 expect(/href="\.\/assets\/SarahElkinsResume\.pdf"\s+download/i.test(resumeHtml), "Resume page must include a downloadable PDF link.");
 expect(/@media\s+print/i.test(resumeCss), "Resume page must include print-specific styling.");
+expect(matches(`${html}\n${resumeHtml}`, /https:\/\/www\.credly\.com\/badges\/fa92a33b-41d1-4094-aec3-d5c3608a0020\/linked_in_profile/gi).length === 2, "Portfolio and resume must include the verified Copilot credential link.");
+expect(matches(`${html}\n${resumeHtml}`, /Microsoft Pro Badge: GitHub Copilot - Proficient/g).length === 2, "Portfolio and resume must preserve the exact certification name.");
 expect(!/\b\d{3,5}\s+[A-Za-z][A-Za-z ]+\s+(?:Road|Street|Avenue|Lane|Drive)\b/i.test(`${html}\n${resumeHtml}`), "Published HTML must not include a street address.");
 expect(!/\(\d{3}\)\s*\d{3}[-.\s]\d{4}/.test(`${html}\n${resumeHtml}`), "Published HTML must not include a phone number.");
 
