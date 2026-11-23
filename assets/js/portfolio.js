@@ -23,12 +23,12 @@ const trendData = [
 ];
 
 const people = [
-  { name: "Avery Brooks", initials: "AB", discipline: "Program", color: "#5c6fd6", weeks: [72, 84, 92, 76], assignments: [["Orchid Launch", "40%"], ["Beacon Research", "32%"]], note: "Available for a small advisory role in the final week." },
-  { name: "Noah Kim", initials: "NK", discipline: "Engineering", color: "#237f87", weeks: [96, 104, 88, 82], assignments: [["Atlas Portal", "64%"], ["Workflow automation", "32%"]], note: "Week two exceeds planned capacity; consider shifting automation work." },
-  { name: "Sofia Martin", initials: "SM", discipline: "Design", color: "#9b5b79", weeks: [62, 70, 78, 70], assignments: [["Orchid Launch", "38%"], ["Nova Journey", "24%"]], note: "Has room for discovery or critique sessions." },
-  { name: "Eli Turner", initials: "ET", discipline: "Engineering", color: "#8a6a2d", weeks: [82, 90, 108, 94], assignments: [["Beacon Research", "46%"], ["Atlas Portal", "36%"]], note: "Week three needs a staffing conversation before commitments change." },
-  { name: "Zara Okafor", initials: "ZO", discipline: "Program", color: "#6b5aaa", weeks: [54, 68, 72, 80], assignments: [["Nova Journey", "34%"], ["Team enablement", "20%"]], note: "Good fit for near-term coordination support." },
-  { name: "Mateo Silva", initials: "MS", discipline: "Data", color: "#3d8060", weeks: [88, 92, 86, 74], assignments: [["Beacon Research", "52%"], ["Insights model", "36%"]], note: "Capacity opens as research synthesis completes." }
+  { name: "Avery Brooks", initials: "AB", discipline: "Program", color: "#4555a9", weeks: [72, 84, 92, 76], assignments: [["Orchid Launch", "40%"], ["Beacon Research", "32%"]], note: "Available for a small advisory role in the final week." },
+  { name: "Noah Kim", initials: "NK", discipline: "Engineering", color: "#17636b", weeks: [96, 104, 88, 82], assignments: [["Atlas Portal", "64%"], ["Workflow automation", "32%"]], note: "Week two exceeds planned capacity; consider shifting automation work." },
+  { name: "Sofia Martin", initials: "SM", discipline: "Design", color: "#7b405e", weeks: [62, 70, 78, 70], assignments: [["Orchid Launch", "38%"], ["Nova Journey", "24%"]], note: "Has room for discovery or critique sessions." },
+  { name: "Eli Turner", initials: "ET", discipline: "Engineering", color: "#6b501e", weeks: [82, 90, 108, 94], assignments: [["Beacon Research", "46%"], ["Atlas Portal", "36%"]], note: "Week three needs a staffing conversation before commitments change." },
+  { name: "Zara Okafor", initials: "ZO", discipline: "Program", color: "#514393", weeks: [54, 68, 72, 80], assignments: [["Nova Journey", "34%"], ["Team enablement", "20%"]], note: "Good fit for near-term coordination support." },
+  { name: "Mateo Silva", initials: "MS", discipline: "Data", color: "#286246", weeks: [88, 92, 86, 74], assignments: [["Beacon Research", "52%"], ["Insights model", "36%"]], note: "Capacity opens as research synthesis completes." }
 ];
 
 const journey = [
@@ -96,11 +96,13 @@ function renderEngagementDashboard() {
   $("#engagement-kpis").innerHTML = kpis.map(([label, value, note]) => `<div class="kpi-card"><span>${label}</span><strong>${value}</strong><small>${note}</small></div>`).join("");
 
   const maxTrend = Math.max(...trendData.flatMap((item) => [item.started, item.completed]));
+  $("#trend-chart").setAttribute("aria-label", `Monthly engagement momentum: ${trendData.map((item) => `${item.month}, ${item.started} started and ${item.completed} completed`).join("; ")}`);
   $("#trend-chart").innerHTML = trendData.map((item) => `<div class="month-bars" title="${item.month}: ${item.started} started, ${item.completed} completed"><i style="height:${(item.started / maxTrend) * 92}%"></i><i style="height:${(item.completed / maxTrend) * 92}%"></i><span>${item.month}</span></div>`).join("");
 
   const stages = ["Intake", "Discovery", "Planning", "Delivery", "Complete"];
   const counts = stages.map((stage) => [stage, data.filter((item) => item.stage === stage).length]);
   const maxStage = Math.max(1, ...counts.map(([, count]) => count));
+  $("#pipeline-chart").setAttribute("aria-label", `Lifecycle mix: ${counts.map(([stage, count]) => `${stage}, ${count}`).join("; ")}`);
   $("#pipeline-chart").innerHTML = counts.map(([stage, count]) => `<div class="pipeline-row"><span>${stage}</span><div class="pipeline-track"><div class="pipeline-fill" style="width:${(count / maxStage) * 100}%"></div></div><strong>${count}</strong></div>`).join("");
 
   const visible = showAllAttention ? attention : attention.slice(0, 3);
@@ -136,7 +138,8 @@ function renderCapacityPlanner() {
     ["Over-capacity weeks", overloaded, overloaded ? "#c85a66" : "#7ca9a5"]
   ].map(([label, value, color]) => `<div class="summary-card"><div><span>${label}</span><strong>${value}</strong></div><i style="background:${color}"></i></div>`).join("");
 
-  $("#resource-list").innerHTML = filtered.length ? filtered.map((person) => `<button class="resource-row ${person.name === selectedPerson ? "active" : ""}" type="button" data-person="${escapeHtml(person.name)}" aria-pressed="${person.name === selectedPerson}"><span class="person"><span class="avatar" style="background:${person.color}">${person.initials}</span><span><strong>${escapeHtml(person.name)}</strong><span>${person.discipline}</span></span></span><span class="week-blocks">${person.weeks.map((value) => { const display = view === "capacity" ? Math.max(0, 100 - value) : value; return `<span class="week-block week-block--${utilizationState(value)}" title="${view === "capacity" ? "Available capacity" : "Utilization"}: ${display}%">${display}%</span>`; }).join("")}</span></button>`).join("") : `<div class="empty-state">No team members match this discipline.</div>`;
+  const weekLabels = ["November 23", "November 30", "December 7", "December 14"];
+  $("#resource-list").innerHTML = filtered.length ? filtered.map((person) => `<button class="resource-row ${person.name === selectedPerson ? "active" : ""}" type="button" data-person="${escapeHtml(person.name)}" aria-pressed="${person.name === selectedPerson}"><span class="person"><span class="avatar" style="background:${person.color}">${person.initials}</span><span><strong>${escapeHtml(person.name)}</strong><span>${person.discipline}</span></span></span><span class="week-blocks">${person.weeks.map((value, index) => { const display = view === "capacity" ? Math.max(0, 100 - value) : value; const measure = view === "capacity" ? "available capacity" : "utilization"; return `<span class="week-block week-block--${utilizationState(value)}" title="${measure}: ${display}%" aria-label="${weekLabels[index]}: ${display}% ${measure}">${display}%</span>`; }).join("")}</span></button>`).join("") : `<div class="empty-state">No team members match this discipline.</div>`;
   $$(".resource-row").forEach((button) => button.addEventListener("click", () => { selectedPerson = button.dataset.person; renderCapacityPlanner(); }));
   renderPersonDetail(filtered.find((person) => person.name === selectedPerson));
 }

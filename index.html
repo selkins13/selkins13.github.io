@@ -26,6 +26,7 @@
       </button>
       <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
         <a href="#work">Work</a>
+        <a href="#ai-practice">AI practice</a>
         <a href="#about">About</a>
         <a href="./assets/SarahElkinsResume.pdf" target="_blank" rel="noopener">Resume</a>
         <a class="button button-small" href="mailto:selkins13@icloud.com">Get in touch</a>
@@ -46,11 +47,12 @@
         <ul class="capability-list" aria-label="Core capabilities">
           <li>Experience strategy</li>
           <li>Workflow automation</li>
+          <li>Responsible AI adoption</li>
           <li>Technical storytelling</li>
           <li>Accessible design</li>
         </ul>
       </div>
-      <div class="hero-visual" aria-label="Illustration of connected workflow systems">
+      <div class="hero-visual" role="img" aria-label="Connected workflow signals showing aligned people, a simplified workflow, and rising momentum">
         <div class="orbit orbit-one"></div>
         <div class="orbit orbit-two"></div>
         <div class="signal-card signal-main">
@@ -72,6 +74,59 @@
         <div><strong>Privacy-safe</strong><span>Fictional data, original interfaces</span></div>
         <div><strong>Built to scale</strong><span>Reusable patterns and documentation</span></div>
         <div><strong>Outcome-focused</strong><span>Clarity before complexity</span></div>
+      </div>
+    </section>
+
+    <section class="section ai-section" id="ai-practice" aria-labelledby="ai-title">
+      <div class="shell">
+        <div class="ai-intro">
+          <div>
+            <p class="eyebrow">Responsible AI practice</p>
+            <h2 id="ai-title">AI should amplify people—not replace their judgment.</h2>
+          </div>
+          <div>
+            <p>I help developers and program leaders adopt AI tools such as GitHub Copilot with clear expectations, practical workflows, and the confidence to evaluate what the technology produces.</p>
+            <p>My approach pairs hands-on enablement with responsible-use guidance: automate repetitive work, reduce context switching, protect sensitive information, and keep human review at every meaningful decision point.</p>
+          </div>
+        </div>
+
+        <div class="ai-practice-grid">
+          <article class="ai-practice-card">
+            <span class="ai-card-icon" aria-hidden="true">01</span>
+            <h3>Adoption strategy</h3>
+            <p>Translate broad AI interest into specific, appropriate use cases with clear boundaries, owners, and feedback loops.</p>
+          </article>
+          <article class="ai-practice-card">
+            <span class="ai-card-icon" aria-hidden="true">02</span>
+            <h3>Workshops & advocacy</h3>
+            <p>Create practical learning experiences that help people experiment safely, ask better questions, and evaluate outputs critically.</p>
+          </article>
+          <article class="ai-practice-card">
+            <span class="ai-card-icon" aria-hidden="true">03</span>
+            <h3>Workflow enablement</h3>
+            <p>Use AI to support drafting, synthesis, documentation, and repetitive tasks while keeping accountable humans in control.</p>
+          </article>
+          <article class="ai-practice-card">
+            <span class="ai-card-icon" aria-hidden="true">04</span>
+            <h3>Responsible practice</h3>
+            <p>Teach privacy-aware prompting, verification habits, transparent limitations, and when not to use AI at all.</p>
+          </article>
+        </div>
+
+        <div class="ai-example-panel">
+          <div>
+            <p class="eyebrow">Representative, non-confidential examples</p>
+            <h3>From curiosity to a repeatable practice.</h3>
+            <p>These are the kinds of outcomes I design for—without exposing private customer work or claiming unsupported results.</p>
+          </div>
+          <ul class="ai-example-list">
+            <li><span aria-hidden="true">✦</span><div><strong>Role-aware learning</strong><p>Workshops that connect AI capabilities to the real tasks of developers, program managers, and technical leaders.</p></div></li>
+            <li><span aria-hidden="true">✦</span><div><strong>Reusable guidance</strong><p>Prompt patterns, review checklists, and examples that help teams move from one-off experiments to consistent habits.</p></div></li>
+            <li><span aria-hidden="true">✦</span><div><strong>Human-centered automation</strong><p>Workflows that reduce repetitive effort and context switching while preserving review, authorship, and accountability.</p></div></li>
+          </ul>
+        </div>
+
+        <p class="ai-connection">This same philosophy shapes the <a href="#engagement-demo">decision-support dashboard</a>, <a href="#capacity-demo">planning workspace</a>, and <a href="#playbook-demo">interactive playbook</a>: technology should make the next responsible action clearer.</p>
       </div>
     </section>
 
@@ -150,7 +205,7 @@
               </section>
               <section class="demo-panel pipeline-panel" aria-labelledby="pipeline-title">
                 <div class="panel-heading"><div><p class="demo-kicker">Current work</p><h4 id="pipeline-title">Lifecycle mix</h4></div></div>
-                <div class="pipeline-chart" id="pipeline-chart"></div>
+                <div class="pipeline-chart" id="pipeline-chart" role="img" aria-label="Lifecycle mix by stage"></div>
               </section>
             </div>
             <section class="demo-panel attention-panel" aria-labelledby="attention-title">
@@ -158,8 +213,9 @@
                 <div><p class="demo-kicker">Prioritize</p><h4 id="attention-title">Needs attention</h4></div>
                 <button class="ghost-button" id="attention-toggle" type="button">Show all</button>
               </div>
-              <div class="table-wrap">
+              <div class="table-wrap" role="region" aria-label="Engagements needing attention" tabindex="0">
                 <table>
+                  <caption class="sr-only">Engagements that need attention based on age or risk signals</caption>
                   <thead><tr><th scope="col">Engagement</th><th scope="col">Stage</th><th scope="col">Owner</th><th scope="col">Age</th><th scope="col">Signal</th></tr></thead>
                   <tbody id="attention-table"></tbody>
                 </table>
@@ -223,7 +279,7 @@
               <section class="resource-list" id="resource-list" aria-label="Team member capacity"></section>
               <aside class="resource-detail demo-panel" id="resource-detail" aria-live="polite"></aside>
             </div>
-            <div class="capacity-legend" aria-label="Capacity status legend"><span><i class="status-block status-block--available"></i>Available</span><span><i class="status-block status-block--balanced"></i>Balanced</span><span><i class="status-block status-block--high"></i>High</span><span><i class="status-block status-block--over"></i>Over capacity</span></div>
+            <div class="capacity-legend" role="group" aria-label="Capacity status legend"><span><i class="status-block status-block--available"></i>Available</span><span><i class="status-block status-block--balanced"></i>Balanced</span><span><i class="status-block status-block--high"></i>High</span><span><i class="status-block status-block--over"></i>Over capacity</span></div>
           </div>
         </div>
 
@@ -288,18 +344,18 @@
       </div>
     </article>
 
-    <section class="section approach-section" id="about" aria-labelledby="about-title">
+    <div class="section approach-section" id="about">
       <div class="shell">
-        <div class="profile-banner">
+        <section class="profile-banner" aria-labelledby="profile-title">
           <img src="./assets/images/HeadShot.jpg" alt="Sarah Elkins smiling outdoors">
           <div>
             <p class="eyebrow">About Sarah</p>
-            <h2>Equal parts systems thinker, educator, and advocate.</h2>
-            <p>I’m a developer advocate and engagement leader who helps people feel confident with complex technology. My career has moved from high-stakes emergency communications to enterprise transformation and developer enablement—experiences that shaped how I listen, simplify, teach, and build for real-world adoption.</p>
+            <h2 id="profile-title">Equal parts systems thinker, educator, and advocate.</h2>
+            <p>I’m a developer advocate and engagement leader who helps people feel confident with complex technology, including responsible adoption of AI tools such as GitHub Copilot. My career has moved from high-stakes emergency communications to enterprise transformation and developer enablement—experiences that shaped how I listen, simplify, teach, and build for real-world adoption.</p>
             <p>Outside of work, I’m a lifelong learner, avid reader, fishing enthusiast, wife, mother, grandmother, and full-time RVer exploring the United States with my family.</p>
           </div>
-        </div>
-        <div class="approach-grid">
+        </section>
+        <section class="approach-grid" aria-labelledby="about-title">
           <div>
           <p class="eyebrow">How I work</p>
           <h2 id="about-title">Strategy that gets practical.</h2>
@@ -312,9 +368,9 @@
             <li><span>03</span><div><strong>Build for adoption</strong><p>Prototype with accessibility, maintainability, documentation, and feedback loops from the start.</p></div></li>
             <li><span>04</span><div><strong>Enable the system</strong><p>Pair the product with guidance and automation so improvement continues after launch.</p></div></li>
           </ol>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
 
     <section class="contact-section">
       <div class="shell contact-card">
@@ -333,7 +389,7 @@
   <footer class="site-footer">
     <div class="shell footer-inner">
       <div><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">SE</span><span>Sarah Elkins</span></a><p>Product-minded enablement, technical storytelling, and operational clarity.</p></div>
-      <div class="footer-links"><a href="#work">Work</a><a href="#about">About</a><a href="./assets/SarahElkinsResume.pdf" target="_blank" rel="noopener">Resume</a><a href="mailto:selkins13@icloud.com">Email</a></div>
+      <div class="footer-links"><a href="#work">Work</a><a href="#ai-practice">AI practice</a><a href="#about">About</a><a href="./assets/SarahElkinsResume.pdf" target="_blank" rel="noopener">Resume</a><a href="mailto:selkins13@icloud.com">Email</a></div>
       <p class="copyright">© <span id="year"></span> Sarah Elkins. Built with privacy-safe fictional data.</p>
     </div>
   </footer>
