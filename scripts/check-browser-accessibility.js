@@ -41,7 +41,7 @@ function reservePort() {
 }
 
 async function waitForDevTools(port, processHandle) {
-  for (let attempt = 0; attempt < 100; attempt += 1) {
+  for (let attempt = 0; attempt < 600; attempt += 1) {
     try {
       const response = await fetch(`http://127.0.0.1:${port}/json/version`);
       if (response.ok) return;
