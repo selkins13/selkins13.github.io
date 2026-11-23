@@ -3,7 +3,9 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const resumeHtml = fs.readFileSync(path.join(root, "resume.html"), "utf8");
 const css = fs.readFileSync(path.join(root, "assets/css/portfolio.css"), "utf8");
+const resumeCss = fs.readFileSync(path.join(root, "assets/css/resume.css"), "utf8");
 const js = fs.readFileSync(path.join(root, "assets/js/portfolio.js"), "utf8");
 const failures = [];
 
@@ -62,6 +64,12 @@ expect(/pipeline-chart"\)\.setAttribute\("aria-label"/.test(js), "Lifecycle char
 expect(/aria-pressed="\$\{person\.name === selectedPerson\}"/.test(js), "Selected resources must expose their pressed state.");
 expect(/aria-label="\$\{weekLabels\[index\]\}/.test(js), "Weekly utilization values must include their date and measure.");
 expect(/function initFocusedDemo\(\)/.test(js) && /demo-explore-title/.test(js), "Focused demos must have a direct-link exploration mode with a page heading.");
+expect(/<main\s+id="resume-main"/i.test(resumeHtml), "Resume page must include a main landmark.");
+expect(matches(resumeHtml, /<h1\b/gi).length === 1, "Resume page must contain exactly one h1.");
+expect(/href="\.\/assets\/SarahElkinsResume\.pdf"\s+download/i.test(resumeHtml), "Resume page must include a downloadable PDF link.");
+expect(/@media\s+print/i.test(resumeCss), "Resume page must include print-specific styling.");
+expect(!/\b\d{3,5}\s+[A-Za-z][A-Za-z ]+\s+(?:Road|Street|Avenue|Lane|Drive)\b/i.test(`${html}\n${resumeHtml}`), "Published HTML must not include a street address.");
+expect(!/\(\d{3}\)\s*\d{3}[-.\s]\d{4}/.test(`${html}\n${resumeHtml}`), "Published HTML must not include a phone number.");
 
 if (failures.length) {
   console.error(`Accessibility regression check failed (${failures.length}):`);
