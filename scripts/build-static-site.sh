@@ -1,15 +1,25 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-OUTPUT="${1:-$ROOT/_site}"
+canonical_path() {
+  python3 - "$1" <<'PY'
+import os
+import sys
 
-case "$OUTPUT" in
-  /|"$HOME"|"$ROOT")
+print(os.path.realpath(os.path.abspath(sys.argv[1])))
+PY
+}
+
+ROOT="$(canonical_path "$(dirname "${BASH_SOURCE[0]}")/..")"
+HOME_PATH="$(canonical_path "$HOME")"
+OUTPUT="$(canonical_path "${1:-$ROOT/_site}")"
+
+for protected_path in / "$HOME_PATH" "$ROOT"; do
+  if [[ "$protected_path" == "$OUTPUT" || "$protected_path" == "$OUTPUT/"* ]]; then
     echo "Refusing to replace unsafe output directory: $OUTPUT" >&2
     exit 1
-    ;;
-esac
+  fi
+done
 
 rm -rf "$OUTPUT"
 mkdir -p "$OUTPUT"

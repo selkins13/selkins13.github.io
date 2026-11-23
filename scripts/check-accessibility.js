@@ -64,7 +64,8 @@ expect(/@media\s*\(prefers-reduced-motion:\s*reduce\)/i.test(css), "Reduced-moti
 expect(!/outline\s*:\s*(?:0|none)/i.test(css), "Focus outlines must not be globally removed.");
 expect(/\.person\s+\.avatar\s*\{\s*color:\s*var\(--white\)/s.test(css), "Avatar initials must retain sufficient foreground contrast.");
 expect(matches(css, /linear-gradient\(115deg,\s*#7d450d,\s*#91520f\)/gi).length === 2, "Welcome banner gradients must preserve paragraph contrast in both themes.");
-expect(/\.week-date\s*\{\s*display:\s*block/s.test(css), "Mobile capacity values must include visible week dates.");
+expect(/\.week-date\s*\{\s*display:\s*block/s.test(css), "Capacity values must include visible week dates.");
+expect(!html.includes("week-key"), "Capacity dates must remain aligned within each resource row.");
 
 expect(/trend-chart"\)\.setAttribute\("aria-label"/.test(js), "Trend chart data must update its accessible description.");
 expect(/All regions and owners monthly engagement momentum/.test(js) && /All-portfolio · six-month view/.test(html), "The unfiltered historical trend must be clearly labeled as all-portfolio data.");

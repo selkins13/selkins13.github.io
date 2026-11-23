@@ -15,25 +15,29 @@ const textPaths = [
   "assets/css/resume.css",
   "assets/js/portfolio.js",
 ];
+const forbidden = [
+  [/(?<!\w)340\+(?!\w)/g, "exact engagement count", "340+ engagements"],
+  [/(?<!\w)47,000\+(?!\w)/g, "exact delivery-hour count", "47,000+ hours"],
+  [/(?<!\w)\$19M\+(?!\w)/g, "exact portfolio value", "$19M+"],
+  [/(?<!\w)(?:\+?1[-.\s]?)?(?:\(\d{3}\)|\d{3})[-.\s]\d{3}[-.\s]\d{4}(?!\w)/g, "phone number", "Contact: (202) 555-0123"],
+  [/(?<!\w)\d{1,5}\s+(?:[A-Z][A-Za-z.'-]*\s+){1,5}(?:Street|St\.|Road|Rd\.|Avenue|Ave\.|Drive|Dr\.|Lane|Ln\.)(?!\w)/g, "street address", "123 Example St."],
+  [/57f3074f-7b6e-46e3-8d21-be6cd83a21a1/g, "private attachment identifier"],
+];
 
 function expect(condition, message) {
   if (!condition) failures.push(message);
 }
 
 function inspect(label, content) {
-  const forbidden = [
-    [/\b340\+\b/g, "exact engagement count"],
-    [/\b47,000\+\b/g, "exact delivery-hour count"],
-    [/\$19M\+\b/g, "exact portfolio value"],
-    [/\b(?:\+?1[-.\s]?)?(?:\(\d{3}\)|\d{3})[-.\s]\d{3}[-.\s]\d{4}\b/g, "phone number"],
-    [/\b\d{1,5}\s+(?:[A-Z][A-Za-z.'-]*\s+){1,5}(?:Street|St\.|Road|Rd\.|Avenue|Ave\.|Drive|Dr\.|Lane|Ln\.)\b/g, "street address"],
-    [/57f3074f-7b6e-46e3-8d21-be6cd83a21a1/g, "private attachment identifier"],
-  ];
-
   for (const [pattern, description] of forbidden) {
     pattern.lastIndex = 0;
     expect(!pattern.test(content), `${label} contains a ${description}`);
   }
+}
+
+for (const [pattern, , sample] of forbidden.filter((entry) => entry[2])) {
+  pattern.lastIndex = 0;
+  expect(pattern.test(sample), `Privacy pattern must detect: ${sample}`);
 }
 
 for (const relativePath of textPaths) {

@@ -297,7 +297,7 @@ async function main() {
         if (behavior.error) failures.push(`${profile.name}: ${behavior.error}`);
         if (!behavior.focusPreserved) failures.push(`${profile.name}: selecting a resource row loses keyboard focus`);
         if (!behavior.selected || !behavior.detailMatches) failures.push(`${profile.name}: resource selection state did not update`);
-        if (profile.width < 600 && !behavior.visibleDates) failures.push(`${profile.name}: capacity blocks do not show mobile week dates`);
+        if (!behavior.visibleDates) failures.push(`${profile.name}: capacity blocks do not show week dates`);
         if (!behavior.blocksFit) failures.push(`${profile.name}: capacity blocks overflow their resource row`);
       }
 

@@ -236,7 +236,6 @@ td { padding: 10px; border-top: 1px solid var(--line); }
 .case-details span { display: block; margin-bottom: 8px; font: 800 .82rem "Manrope", sans-serif; }
 .case-details p { margin-bottom: 0; color: var(--muted); font-size: .9rem; }
 
-.week-key { width: 53%; display: grid; grid-template-columns: repeat(4, 1fr); color: var(--muted); font-size: .62rem; text-align: center; }
 .capacity-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
 .summary-card { display: flex; justify-content: space-between; align-items: center; }
 .summary-card div { display: flex; flex-direction: column; }
@@ -254,8 +253,8 @@ td { padding: 10px; border-top: 1px solid var(--line); }
 .person strong { font-size: .72rem; }
 .person span { color: var(--muted); font-size: .6rem; }
 .week-blocks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
-.week-block { height: 36px; display: grid; place-items: center; color: #445064; background: #eef4f3; border-radius: 7px; font-size: .6rem; font-weight: 800; }
-.week-date { display: none; }
+.week-block { height: 46px; display: grid; grid-template-rows: auto auto; place-content: center; color: #445064; background: #eef4f3; border-radius: 7px; font-size: .6rem; font-weight: 800; }
+.week-date { display: block; font-size: .48rem; font-weight: 700; }
 .week-block--balanced { color: #156761; background: #d7f0ec; }
 .week-block--high { color: #875317; background: #ffedc9; }
 .week-block--over { color: #9c3d48; background: #ffe2e6; }
@@ -431,9 +430,6 @@ td { padding: 10px; border-top: 1px solid var(--line); }
   .profile-banner { margin-bottom: 70px; padding: 20px; grid-template-columns: 1fr; }
   .profile-banner img { max-width: 320px; }
   .resource-row { grid-template-columns: 1fr; }
-  .week-key { display: none; }
-  .week-block { height: 46px; grid-template-rows: auto auto; align-content: center; }
-  .week-date { display: block; font-size: .48rem; font-weight: 700; }
   .capacity-legend { justify-content: flex-start; flex-wrap: wrap; }
   .playbook-frame { display: block; }
   .playbook-sidebar { padding: 16px; }

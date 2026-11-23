@@ -35,6 +35,7 @@ jobs:
       - name: Build and validate static site
         run: |
           scripts/build-static-site.sh "$RUNNER_TEMP/site"
+          scripts/check-build-safety.sh
           node scripts/check-site.js
           SITE_ROOT="$RUNNER_TEMP/site" node scripts/check-site.js
           node scripts/check-accessibility.js
