@@ -51,7 +51,6 @@
         </div>
         <div class="resume-actions" aria-label="Resume actions">
           <a class="button" href="./assets/SarahElkinsResume.pdf" download>Download PDF</a>
-          <button class="text-button" type="button" id="print-resume">Print or save as PDF</button>
         </div>
       </div>
     </header>
@@ -188,7 +187,6 @@
       const open = nav.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(open));
     });
-    document.getElementById("print-resume").addEventListener("click", () => window.print());
   </script>
 </body>
 </html>
